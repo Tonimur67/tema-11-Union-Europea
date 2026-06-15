@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UE — Las 7 Instituciones y Fuentes del Derecho</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg: #0d0f14; --surface: #141720; --border: #252a38;
+    --accent: #e8c840; --accent2: #3d9eff; --accent3: #ff5f5f;
+    --accent4: #4ade80; --accent5: #c084fc;
+    --text: #d4d8e8; --muted: #6b7292;
+    --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 13px; line-height: 1.6; padding: 32px 24px; max-width: 980px; margin: 0 auto; }
+  .header { border-left: 4px solid var(--accent2); padding: 16px 20px; margin-bottom: 32px; background: var(--surface); }
+  .header .tag { font-family: var(--mono); font-size: 10px; color: var(--accent2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-size: 20px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .header .sub { font-size: 11px; color: var(--muted); margin-top: 6px; font-family: var(--mono); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .full { grid-column: 1 / -1; }
+  .block { background: var(--surface); border: 1px solid var(--border); padding: 14px; }
+  .block-title { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 11px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .yellow .block-title { color: var(--accent); } .yellow .dot { background: var(--accent); }
+  .blue .block-title { color: var(--accent2); } .blue .dot { background: var(--accent2); }
+  .red .block-title { color: var(--accent3); } .red .dot { background: var(--accent3); }
+  .green .block-title { color: var(--accent4); } .green .dot { background: var(--accent4); }
+  .purple .block-title { color: var(--accent5); } .purple .dot { background: var(--accent5); }
+  .item { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12px; line-height: 1.5; }
+  .item:last-child { margin-bottom: 0; }
+  .item .arrow { color: var(--muted); flex-shrink: 0; font-family: var(--mono); font-size: 11px; margin-top: 1px; }
+  .item strong { color: #fff; font-weight: 600; }
+  .pill { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 2px; margin: 0 2px; }
+  .pill-y { background: rgba(232,200,64,0.15); color: var(--accent); border: 1px solid rgba(232,200,64,0.3); }
+  .pill-b { background: rgba(61,158,255,0.15); color: var(--accent2); border: 1px solid rgba(61,158,255,0.3); }
+  .pill-r { background: rgba(255,95,95,0.15); color: var(--accent3); border: 1px solid rgba(255,95,95,0.3); }
+  .pill-g { background: rgba(74,222,128,0.15); color: var(--accent4); border: 1px solid rgba(74,222,128,0.3); }
+  .pill-p { background: rgba(192,132,252,0.15); color: var(--accent5); border: 1px solid rgba(192,132,252,0.3); }
+  .section-label { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin: 22px 0 11px 0; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  th { font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  td { padding: 7px 8px; border-bottom: 1px solid rgba(37,42,56,0.5); vertical-align: top; line-height: 1.4; }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: #fff; }
+  .alert { background: rgba(255,95,95,0.08); border: 1px solid rgba(255,95,95,0.25); padding: 10px 14px; font-size: 12px; margin-bottom: 8px; }
+  .alert .alabel { font-family: var(--mono); font-size: 9px; color: var(--accent3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .note { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2); padding: 10px 14px; font-size: 12px; margin-bottom: 8px; }
+  .note .nlabel { font-family: var(--mono); font-size: 9px; color: var(--accent4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .criba { background: rgba(232,200,64,0.04); border: 1px solid rgba(232,200,64,0.2); }
+  .criba .block-title { color: var(--accent); }
+  .criba th { color: var(--accent); }
+  .sub-head { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin: 10px 0 6px 0; }
+
+  /* INST CARDS */
+  .inst-num { font-family: var(--mono); font-size: 26px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .inst-name { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+  /* FUENTES VISUAL */
+  .fuente-badge { display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 2px; margin-bottom: 6px; }
+
+  /* ENLACE A SUBPÁGINA */
+  .inst-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 2px;
+    text-decoration: none; white-space: nowrap;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  .inst-link:hover { opacity: 0.75; }
+  .inst-link-b { background: rgba(61,158,255,0.15); color: var(--accent2); border: 1px solid rgba(61,158,255,0.35); }
+  .inst-link-g { background: rgba(74,222,128,0.12); color: var(--accent4); border: 1px solid rgba(74,222,128,0.35); }
+  .inst-link-y { background: rgba(232,200,64,0.12); color: var(--accent); border: 1px solid rgba(232,200,64,0.35); }
+  .inst-link-r { background: rgba(255,95,95,0.12); color: var(--accent3); border: 1px solid rgba(255,95,95,0.35); }
+  .inst-link-p { background: rgba(192,132,252,0.12); color: var(--accent5); border: 1px solid rgba(192,132,252,0.35); }
+  /* indica que la página aún no está disponible */
+  .inst-link-pending { opacity: 0.4; cursor: default; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">Bloque Común · Derecho de la Unión Europea · Temas 10-11</div>
+  <h1>Las 7 Instituciones de la UE · Fuentes del Derecho</h1>
+  <div class="sub">Art. 13-19 TUE · Arts. 223-281 TFUE · Lisboa 2009 · Haz clic en «→ detalle» para ampliar cada institución</div>
+</div>
+
+<!-- ALERTA CONFUSIÓN CLÁSICA -->
+<div class="section-label">00 · Trampa clásica de test — Los tres Consejos</div>
+<div class="block full red" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>¡Tres nombres parecidos, tres cosas totalmente distintas!</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+    <div>
+      <div class="fuente-badge" style="background:rgba(61,158,255,0.15); color:var(--accent2); border:1px solid rgba(61,158,255,0.3);">Institución UE nº 1</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Consejo Europeo</strong><br>Jefes de Estado o de Gobierno. Define orientaciones políticas generales. <span class="pill pill-b">NO legisla</span>. Art. 15 TUE</span></div>
+    </div>
+    <div>
+      <div class="fuente-badge" style="background:rgba(74,222,128,0.15); color:var(--accent4); border:1px solid rgba(74,222,128,0.3);">Institución UE nº 2</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Consejo (de la UE)</strong><br>Ministros de los EEMM. Co-legislador junto al PE. Presidencia rotatoria. Art. 16 TUE</span></div>
+    </div>
+    <div>
+      <div class="alert" style="margin-bottom:0;">
+        <div class="alabel">⚠ NO es institución de la UE</div>
+        <strong>Consejo de Europa</strong><br>Organización internacional <span class="pill pill-r">completamente independiente</span> de la UE.<br>Sede: Estrasburgo. Crea el CEDH.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAS 7 INSTITUCIONES -->
+<div class="section-label">01 · Las 7 Instituciones de la UE (art. 13 TUE) — Orden del Tratado</div>
+
+<!-- CONSEJO EUROPEO + CONSEJO -->
+<div class="grid-2">
+  <div class="block blue">
+    <div class="inst-num" style="color:var(--accent2);">01</div>
+    <div class="inst-name">
+      Consejo Europeo — Art. 15 TUE
+      <a href="consejo_europeo.html" class="inst-link inst-link-b">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> Jefes de Estado o de Gobierno de los EEMM + Presidente del Consejo Europeo + Presidente de la Comisión. Participa el Alto Representante</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función:</strong> Da a la UE los impulsos necesarios y define sus orientaciones y prioridades políticas generales. <span class="pill pill-r">No ejerce función legislativa alguna</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Reuniones:</strong> 2 veces por semestre por convocatoria de su Presidente</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Votación:</strong> Por <span class="pill pill-b">consenso</span>, salvo que los Tratados dispongan otra cosa</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidente:</strong> Elegido por <span class="pill pill-b">mayoría cualificada</span> · Mandato: <span class="pill pill-b">2 años y medio</span> · Renovable <span class="pill pill-b">una sola vez</span> · No puede ejercer mandato nacional</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Bruselas</span></div>
+  </div>
+  <div class="block green">
+    <div class="inst-num" style="color:var(--accent4);">02</div>
+    <div class="inst-name">
+      Consejo (de la UE) — Art. 16 TUE · Arts. 237-243 TFUE
+      <a href="el_consejo.html" class="inst-link inst-link-g">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> Un representante de cada EEMM de rango ministerial, facultado para comprometer al Gobierno y votar</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Funciones:</strong> Legislativa + Presupuestaria (con PE) · Definición de políticas · Coordinación · PESC · Acuerdos internacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Votación regla general:</strong> Mayoría cualificada · Unanimidad: fiscalidad, PESC, protección social, adhesiones</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Formaciones fijadas en TUE:</strong> <span class="pill pill-g">CAG</span> (Asuntos Generales) · <span class="pill pill-g">CAE</span> (Asuntos Exteriores — presidido por el Alto Representante)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidencia:</strong> Rotatoria cada <span class="pill pill-g">6 meses</span> (trío de 18 meses) · Excepción: CAE</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Bruselas (abril, junio y octubre: Luxemburgo)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>COREPER:</strong> Prepara los trabajos del Consejo. COREPER II (embajadores) → consejos políticos. COREPER I (adjuntos) → consejos técnicos</span></div>
+  </div>
+</div>
+
+<!-- COMISIÓN + PE -->
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="inst-num" style="color:var(--accent);">03</div>
+    <div class="inst-name">
+      Comisión Europea — Art. 17 TUE · Arts. 244-250 TFUE
+      <a href="comision_europea.html" class="inst-link inst-link-y">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> Un comisario por EEMM (incluido Presidente y Alto Representante). Desde 1 nov 2014: 2/3 del nº de EEMM, salvo que el Consejo Europeo por unanimidad modifique este número</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mandato:</strong> <span class="pill pill-y">5 años</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Funciones clave:</strong><br>
+    — <span class="pill pill-y">Monopolio</span> de iniciativa legislativa (los actos legislativos solo a propuesta suya salvo excepción)<br>
+    — Guardiana de los Tratados<br>
+    — Ejecutiva: gestiona presupuesto y programas<br>
+    — Representación exterior (salvo PESC)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Nombramiento del Presidente:</strong> Consejo Europeo (mayoría cualificada) → PE lo elige por mayoría absoluta</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Responsabilidad colegiada</strong> ante el PE → moción de censura: <span class="pill pill-r">2/3 de votos emitidos</span> que representen mayoría del PE → dimitir colectivamente</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Bruselas</span></div>
+  </div>
+  <div class="block blue">
+    <div class="inst-num" style="color:var(--accent2);">04</div>
+    <div class="inst-name">
+      Parlamento Europeo — Art. 14 TUE · Arts. 223-234 TFUE
+      <a href="parlamento_europeo.html" class="inst-link inst-link-b">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> Máx. <span class="pill pill-b">750 + Presidente</span>. Mín. <span class="pill pill-b">6</span> diputados por EEMM · Máx. <span class="pill pill-b">96</span> por EEMM · Representación decrecientemente proporcional</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Elección:</strong> Sufragio universal directo, libre y secreto · Mandato: <span class="pill pill-b">5 años</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Funciones:</strong> Legislativa + Presupuestaria (con Consejo) · Control político · Elige al Presidente de la Comisión · Aprueba los acuerdos internacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Estrasburgo (plenarios) · Bruselas (comisiones y plenarios adicionales) · Luxemburgo (Secretaría General)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Defensor del Pueblo:</strong> elegido por el PE tras cada elección · Mandato renovable · Instruye reclamaciones de mala administración</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Comisión de investigación:</strong> a petición de <span class="pill pill-b">1/4</span> de sus miembros</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Votación regla general:</strong> Mayoría de votos emitidos</span></div>
+  </div>
+</div>
+
+<!-- TJUE + TC + BCE -->
+<div class="grid-3">
+  <div class="block red">
+    <div class="inst-num" style="color:var(--accent3);">05</div>
+    <div class="inst-name">
+      TJUE — Art. 19 TUE · Arts. 251-281 TFUE
+      <a href="tjue.html" class="inst-link inst-link-r">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Estructura:</strong><br>
+    — <span class="pill pill-r">Tribunal de Justicia</span>: 1 juez por EEMM + 11 abogados generales<br>
+    — <span class="pill pill-r">Tribunal General</span>: ≥ 1 juez por EEMM<br>
+    — Tribunales especializados</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Nombramiento:</strong> De común acuerdo por los Gobiernos de los EEMM · Mandato: <span class="pill pill-r">6 años</span> · Renovación parcial cada <span class="pill pill-r">3 años</span> · Renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidente del TJ:</strong> Elegido por los jueces · <span class="pill pill-r">3 años</span> · Renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Luxemburgo</span></div>
+    <div class="sub-head">Recursos principales</div>
+    <div class="item"><span class="arrow">→</span><span>Incumplimiento · Anulación · Omisión · Prejudicial · Responsabilidad extracontractual</span></div>
+    <div class="note" style="margin-top:8px; margin-bottom:0;">
+      <div class="nlabel">Cuestión prejudicial</div>
+      Órgano jurisdiccional nacional que no admite recurso → <strong>obligado</strong> a plantearla. El resto → facultativo.
+    </div>
+  </div>
+  <div class="block yellow">
+    <div class="inst-num" style="color:var(--accent);">06</div>
+    <div class="inst-name">
+      Tribunal de Cuentas — Arts. 285-287 TFUE
+      <a href="tribunal_cuentas.html" class="inst-link inst-link-y">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> 1 miembro por EEMM · Elegidos por el <span class="pill pill-y">Consejo</span> por mayoría cualificada previa consulta al PE · Mandato: <span class="pill pill-y">6 años</span> · Renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función:</strong> Fiscalización de las cuentas de la UE y de todos sus organismos. Comprueba legalidad y regularidad de ingresos y gastos</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Informe anual:</strong> Publicado en el DOUE con las observaciones de las instituciones · Sirve de base para la aprobación de la gestión por el PE</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>No tiene función jurisdiccional</strong> — solo fiscalizadora (confusión clásica de test)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Luxemburgo</span></div>
+    <div class="alert" style="margin-top:8px; margin-bottom:0;">
+      <div class="alabel">⚠ Elevado a institución</div>
+      Ya era institución antes de Lisboa. El Tratado de Maastricht (1993) lo elevó a institución.
+    </div>
+  </div>
+  <div class="block purple">
+    <div class="inst-num" style="color:var(--accent5);">07</div>
+    <div class="inst-name">
+      BCE — Arts. 282-284 TFUE
+      <a href="bce.html" class="inst-link inst-link-p">→ detalle</a>
+    </div>
+    <div class="item"><span class="arrow">→</span><span><strong>Elevado a institución por Lisboa (2009)</strong> — antes era un órgano del SEBC</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Misión principal:</strong> Mantener la estabilidad de precios en la zona euro</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función exclusiva:</strong> Autorizar la emisión del euro. Solo el BCE y los bancos centrales nacionales pueden emitir billetes en euros</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Independencia:</strong> Total — no puede recibir instrucciones de gobiernos ni instituciones</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidente:</strong> Mandato de <span class="pill pill-p">8 años</span> · No renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Fráncfort (Alemania)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>SEBC:</strong> Sistema Europeo de Bancos Centrales = BCE + bancos centrales nacionales de <strong>todos</strong> los EEMM (incluidos los de fuera del euro)</span></div>
+  </div>
+</div>
+
+<!-- ÓRGANOS AUXILIARES -->
+<div class="section-label">02 · Órganos auxiliares y consultivos (art. 13.4 TUE)</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Comité Económico y Social (CES)</div>
+    <div class="item"><span class="arrow">→</span><span>Asiste al PE, Consejo y Comisión · Función consultiva</span></div>
+    <div class="item"><span class="arrow">→</span><span>Representa a <strong>organizaciones patronales, sindicales y grupos de interés</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Nº de miembros: <span class="pill pill-b">≤ 350</span> · Mandato: <span class="pill pill-b">5 años</span></span></div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Comité de las Regiones (CDR)</div>
+    <div class="item"><span class="arrow">→</span><span>Asiste al PE, Consejo y Comisión · Función consultiva</span></div>
+    <div class="item"><span class="arrow">→</span><span>Representa a <strong>entes regionales y locales</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Nº de miembros: <span class="pill pill-g">≤ 350</span> · Mandato: <span class="pill pill-g">5 años</span></span></div>
+    <div class="item"><span class="arrow">→</span><span>Consulta obligatoria en materias de cohesión territorial, transportes, redes transeuropeas…</span></div>
+  </div>
+</div>
+
+<!-- FUENTES DEL DERECHO -->
+<div class="section-label">03 · Fuentes del Derecho de la UE</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Derecho Originario (Primario)</div>
+    <div class="item"><span class="arrow">→</span><span>Constituye la <strong>"Constitución comunitaria"</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Goza de <strong>superlegalidad formal y material</strong> sobre el derecho derivado</span></div>
+    <div class="sub-head">Elementos</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">TUE</span> — Tratado de la Unión Europea</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">TFUE</span> — Tratado de Funcionamiento de la UE</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">CDFUE</span> — Carta de los Derechos Fundamentales (valor vinculante desde Lisboa)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Tratados de adhesión de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span>Protocolos y Anexos a los Tratados</span></div>
+    <div class="sub-head">Principios del Derecho comunitario</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Autónomo:</strong> ordenamiento propio con sus instituciones legislativas, ejecutivas y judiciales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Supraestatal:</strong> basado en transferencia definitiva de competencias de los EEMM a la UE</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Selectivo:</strong> no pretende sustituir al Derecho de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sujetos:</strong> EEMM + instituciones + personas físicas y jurídicas</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Derecho Derivado (Secundario) — Actos del art. 288 TFUE</div>
+    <table>
+      <thead><tr><th>Acto</th><th>¿Vinculante?</th><th>¿Directamente aplicable?</th><th>Destinatarios</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Reglamento</strong></td>
+          <td><span class="pill pill-g">Sí — íntegramente</span></td>
+          <td><span class="pill pill-g">Sí — no requiere transposición</span></td>
+          <td>Todos (EEMM + particulares)</td>
+        </tr>
+        <tr>
+          <td><strong>Directiva</strong></td>
+          <td><span class="pill pill-y">Sí — solo en cuanto al resultado</span></td>
+          <td><span class="pill pill-r">No — requiere transposición</span></td>
+          <td>Solo EEMM</td>
+        </tr>
+        <tr>
+          <td><strong>Decisión</strong></td>
+          <td><span class="pill pill-g">Sí — íntegramente</span></td>
+          <td><span class="pill pill-g">Sí</span></td>
+          <td>Destinatario específico (EEMM, empresa, persona)</td>
+        </tr>
+        <tr>
+          <td><strong>Recomendación</strong></td>
+          <td><span class="pill pill-r">No</span></td>
+          <td><span class="pill pill-r">No</span></td>
+          <td>Sugiere líneas de actuación</td>
+        </tr>
+        <tr>
+          <td><strong>Dictamen</strong></td>
+          <td><span class="pill pill-r">No</span></td>
+          <td><span class="pill pill-r">No</span></td>
+          <td>Declaraciones de instituciones y comités</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- REGLAMENTO VS DIRECTIVA DETALLE -->
+<div class="grid-2">
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>El Reglamento — características</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Alcance general:</strong> regula supuestos abstractos · destinatarios = EEMM + sus nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Vinculante</strong> en todos sus elementos</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Directamente aplicable:</strong> forma parte del ordenamiento interno desde su publicación en el <span class="pill pill-g">DOUE</span>, sin publicación en el BOE</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Efecto directo:</strong> crea derechos y obligaciones invocables ante jueces nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Entrada en vigor:</strong> a los <span class="pill pill-g">20 días</span> desde su publicación en el DOUE, salvo que establezca otra fecha</span></div>
+    <div class="sub-head">Quiénes pueden aprobarlo</div>
+    <div class="item"><span class="arrow">→</span><span>Consejo + PE (procedimiento legislativo ordinario o especial) · Consejo solo · Comisión (por delegación) · BCE</span></div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>La Directiva — características</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sin alcance general:</strong> destinatarios son solo los EEMM, no sus nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>No vinculante íntegramente:</strong> obliga al EEMM en cuanto al resultado, pero deja libre la forma y los medios</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Requiere transposición</strong> al derecho interno mediante ley o reglamento nacional</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sin efecto directo</strong> en principio (excepciones jurisprudenciales TJUE)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Entrada en vigor:</strong> mediante publicación en DOUE o notificación al EEMM destinatario</span></div>
+    <div class="sub-head">Quiénes pueden aprobarla</div>
+    <div class="item"><span class="arrow">→</span><span>Consejo + PE · Consejo solo · Comisión</span></div>
+  </div>
+</div>
+
+<!-- OTRAS FUENTES -->
+<div class="section-label">04 · Otras fuentes del Derecho de la UE</div>
+<div class="grid-3">
+  <div class="block purple">
+    <div class="block-title"><span class="dot"></span>Derecho Internacional</div>
+    <div class="item"><span class="arrow">→</span><span>Acuerdos internacionales celebrados por la UE con terceros países u organizaciones</span></div>
+    <div class="item"><span class="arrow">→</span><span>Vinculantes para las instituciones y los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span>Prevalecen sobre el derecho derivado pero están subordinados al derecho originario</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Principios Generales del Derecho</div>
+    <div class="item"><span class="arrow">→</span><span>Desarrollados por la jurisprudencia del TJUE</span></div>
+    <div class="item"><span class="arrow">→</span><span>Proporcionalidad · Igualdad · Seguridad jurídica · Confianza legítima · Non bis in idem</span></div>
+    <div class="item"><span class="arrow">→</span><span>Derechos fundamentales (antes de la CDFUE)</span></div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Jurisprudencia del TJUE</div>
+    <div class="item"><span class="arrow">→</span><span>No es fuente formal pero tiene enorme importancia práctica</span></div>
+    <div class="item"><span class="arrow">→</span><span>Ha establecido principios clave: primacía, efecto directo, responsabilidad del Estado…</span></div>
+    <div class="item"><span class="arrow">→</span><span>Las sentencias tienen efectos <em>erga omnes</em> cuando declaran nulidad de actos</span></div>
+  </div>
+</div>
+
+<!-- RELACIÓN DERECHO UE / DERECHO INTERNO -->
+<div class="section-label">05 · Relaciones entre Derecho UE y ordenamiento de los EEMM</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Principios de articulación</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Primacía</div>
+      <div class="item"><span class="arrow">→</span><span>El Derecho UE prevalece sobre el derecho nacional en caso de conflicto (TJUE, caso Costa/ENEL, 1964)</span></div>
+      <div class="item"><span class="arrow">→</span><span>El juez nacional debe <strong>inaplicar</strong> la norma nacional contraria al Derecho UE</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">Efecto Directo</div>
+      <div class="item"><span class="arrow">→</span><span>Las normas de la UE pueden crear derechos y obligaciones directamente invocables por los particulares ante los jueces nacionales</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Vertical:</strong> particular frente al Estado · <strong>Horizontal:</strong> entre particulares (solo reglamentos y decisiones)</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">Aplicabilidad directa en España</div>
+      <div class="item"><span class="arrow">→</span><span>Desde la adhesión (art. 96 CE) los Tratados forman parte del Derecho positivo español</span></div>
+      <div class="item"><span class="arrow">→</span><span>Los Reglamentos se aplican directamente sin publicación en el BOE</span></div>
+      <div class="item"><span class="arrow">→</span><span>Las Directivas requieren ley o reglamento nacional de transposición</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA FINAL -->
+<div class="section-label">🎯 · Kit de criba directa para el test</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos — Instituciones y Fuentes UE</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Nuevas instituciones con Lisboa (antes no lo eran)</td><td><strong>Consejo Europeo</strong> + <strong>BCE</strong></td></tr>
+      <tr><td>Consejo Europeo — función legislativa</td><td><span class="pill pill-r">NO</span> ejerce función legislativa alguna</td></tr>
+      <tr><td>Consejo Europeo — votación</td><td><strong>Consenso</strong> como regla general</td></tr>
+      <tr><td>Consejo Europeo — reuniones</td><td><strong>2 veces por semestre</strong></td></tr>
+      <tr><td>Presidencia Consejo Europeo — mandato</td><td><strong>2 años y medio</strong> · renovable una vez · sin mandato nacional</td></tr>
+      <tr><td>PE — número máximo de diputados</td><td><strong>750 + Presidente</strong></td></tr>
+      <tr><td>PE — mínimo y máximo por EEMM</td><td>Mín. <strong>6</strong> · Máx. <strong>96</strong></td></tr>
+      <tr><td>PE — mandato</td><td><strong>5 años</strong></td></tr>
+      <tr><td>PE — sede plenarios</td><td><strong>Estrasburgo</strong> (y algunos en Bruselas) · Secretaría: Luxemburgo</td></tr>
+      <tr><td>Comisión — monopolio de iniciativa</td><td><strong>Sí</strong> — actos legislativos solo a propuesta suya (salvo excepción)</td></tr>
+      <tr><td>Comisión — mandato</td><td><strong>5 años</strong></td></tr>
+      <tr><td>Moción de censura a la Comisión</td><td><strong>2/3 votos emitidos</strong> que representen mayoría del PE → dimisión colectiva</td></tr>
+      <tr><td>TJUE — jueces del TJ mandato</td><td><strong>6 años</strong> · renovación parcial cada <strong>3 años</strong></td></tr>
+      <tr><td>Presidente TJ mandato</td><td><strong>3 años</strong> · renovable · elegido por los jueces</td></tr>
+      <tr><td>Abogados generales del TJ</td><td><strong>11</strong></td></tr>
+      <tr><td>TJUE — sede</td><td><strong>Luxemburgo</strong></td></tr>
+      <tr><td>Tribunal de Cuentas — función jurisdiccional</td><td><span class="pill pill-r">NO</span> — solo fiscalizadora</td></tr>
+      <tr><td>Tribunal de Cuentas — elevado a institución</td><td>Por el Tratado de <strong>Maastricht (1993)</strong></td></tr>
+      <tr><td>BCE — mandato Presidente</td><td><strong>8 años</strong> · no renovable</td></tr>
+      <tr><td>BCE — sede</td><td><strong>Fráncfort</strong></td></tr>
+      <tr><td>SEBC incluye</td><td>BCE + bancos centrales nacionales de <strong>todos</strong> los EEMM (también los no euro)</td></tr>
+      <tr><td>CAE — presidencia</td><td>Permanente: <strong>Alto Representante</strong> (no rotación)</td></tr>
+      <tr><td>Consejo — sede general / especial</td><td><strong>Bruselas</strong> / <strong>Luxemburgo</strong> (abril, junio y octubre)</td></tr>
+      <tr><td>Reglamento — directamente aplicable</td><td><strong>Sí</strong> — desde publicación en DOUE, sin BOE</td></tr>
+      <tr><td>Reglamento — entrada en vigor</td><td><strong>20 días</strong> desde publicación en DOUE (salvo que establezca otra fecha)</td></tr>
+      <tr><td>Directiva — efecto directo</td><td><strong>No</strong> en principio · requiere transposición</td></tr>
+      <tr><td>Directiva — destinatarios</td><td>Solo <strong>EEMM</strong> (no sus nacionales directamente)</td></tr>
+      <tr><td>Decisión — vinculante</td><td><strong>Sí</strong> íntegramente · directamente aplicable · destinatario específico</td></tr>
+      <tr><td>Recomendación y dictamen</td><td><strong>No vinculantes</strong></td></tr>
+      <tr><td>CDFUE — valor vinculante desde</td><td><strong>Lisboa (2009)</strong> — salvo para RU y Polonia (entonces)</td></tr>
+      <tr><td>Principio de primacía — origen</td><td>TJUE, caso <strong>Costa/ENEL (1964)</strong></td></tr>
+      <tr><td>CES y CDR — nº máximo de miembros</td><td><strong>≤ 350</strong> cada uno · mandato <strong>5 años</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PÁGINAS COMPLEMENTARIAS -->
+<div class="section-label">06 · Páginas complementarias — amplía el conocimiento</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+
+  <div style="background:var(--surface);border:1px solid var(--border);padding:14px;">
+    <div style="font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">Órganos consultivos — en profundidad</div>
+    <a href="cese.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:10px 12px;margin-bottom:8px;border:1px solid rgba(61,158,255,.3);background:rgba(61,158,255,.06);">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent2);">CESE</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Comité Económico y Social · 3 grupos · dictámenes · materias</div>
+      </div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--accent2);">→</span>
+    </a>
+    <a href="cdr.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:10px 12px;border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent4);">CDR</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Comité de las Regiones · mandato electoral · subsidiariedad · TJUE</div>
+      </div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--accent4);">→</span>
+    </a>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--border);padding:14px;">
+    <div style="font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">Fuentes del Derecho — en profundidad</div>
+    <a href="fuentes_derecho.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:10px 12px;margin-bottom:8px;border:1px solid rgba(232,200,64,.3);background:rgba(232,200,64,.06);">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);">Fuentes del Derecho UE</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Jerarquía · art. 288 TFUE · los 5 actos · Reglamento vs Directiva</div>
+      </div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--accent);">→</span>
+    </a>
+    <a href="otras_fuentes.html" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:10px 12px;border:1px solid rgba(192,132,252,.3);background:rgba(192,132,252,.06);">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent5);">Otras fuentes + Jurisprudencia</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Acuerdos internacionales · Principios generales · Van Gend · Costa/ENEL · Francovich</div>
+      </div>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--accent5);">→</span>
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
