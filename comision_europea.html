@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Comisión Europea — Detalle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg:#0d0f14;--surface:#141720;--border:#252a38;
+    --accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;
+    --text:#d4d8e8;--muted:#6b7292;
+    --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid rgba(232,200,64,.3);padding:4px 10px;background:rgba(232,200,64,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Fases de nombramiento */
+  .fase{display:flex;gap:0;margin-bottom:10px;}
+  .fase-num{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--accent);min-width:44px;line-height:1.1;padding-top:2px;}
+  .fase-body{flex:1;border-left:2px solid rgba(232,200,64,.3);padding-left:12px;}
+  .fase-body .fase-title{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+
+  /* Causas extinción */
+  .causa{background:rgba(255,95,95,.05);border:1px solid rgba(255,95,95,.2);padding:8px 10px;margin-bottom:6px;font-size:12px;}
+  .causa strong{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 3 · Art. 17 TUE · Arts. 244-250 TFUE</div>
+  <h1>La Comisión Europea</h1>
+  <div class="sub">Guardiana de los Tratados · Monopolio de iniciativa legislativa · Sede: Bruselas</div>
+</div>
+
+<!-- 1. NATURALEZA -->
+<div class="section-label">01 · Naturaleza jurídica y características</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Definición y carácter</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Representa el interés general de la Unión Europea</strong> — a diferencia del Consejo (intereses nacionales) y del PE (intereses ciudadanos)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Actúa con <strong>plena independencia</strong> de los Gobiernos nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span>Sus miembros <span class="pill pill-r">no solicitarán ni aceptarán instrucciones</span> de ningún Gobierno, institución u organismo</span></div>
+    <div class="item"><span class="arrow">→</span><span>Los EEMM tienen la <strong>obligación correlativa</strong> de respetar su independencia</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Origen:</strong> El Tratado de Bruselas creó una Comisión única para las tres Comunidades Europeas de los años 50</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede:</strong> Bruselas</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Composición — Art. 17.5 TUE</div>
+    <div class="sub-head" style="color:var(--accent3);">Previsión teórica del Tratado (desde 1 nov 2014)</div>
+    <div class="item"><span class="arrow">→</span><span>La Comisión debería estar compuesta por un número de miembros equivalente a <span class="pill pill-r">2/3 del número de EEMM</span>, incluyendo Presidente y Alto Representante, con rotación igualataria</span></div>
+    <div class="item"><span class="arrow">→</span><span>Cláusula de escape: «a menos que el Consejo Europeo <strong>por unanimidad</strong> decida modificar dicho número»</span></div>
+    <div class="sub-head" style="color:var(--accent4);margin-top:10px;">Realidad jurídica actual</div>
+    <div class="item"><span class="arrow">→</span><span>Por decisión del Consejo Europeo de <strong>22 de mayo de 2013</strong>, la Comisión se compone de <span class="pill pill-g">1 comisario por EEMM</span> (actualmente 27)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Incluye al <strong>Presidente</strong> y al <strong>Alto Representante</strong> (que actúa como Vicepresidente)</span></div>
+  </div>
+</div>
+
+<!-- 2. NOMBRAMIENTO -->
+<div class="section-label">02 · Procedimiento de designación y nombramiento — Art. 17.7 TUE</div>
+<div class="block full yellow" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Tres fases de investidura</div>
+  <div class="fase">
+    <div class="fase-num">01</div>
+    <div class="fase-body">
+      <div class="fase-title">Elección del Presidente de la Comisión</div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Consejo Europeo</strong>, por <span class="pill pill-y">mayoría cualificada</span> y teniendo en cuenta el resultado de las elecciones al PE, <strong>propone</strong> un candidato al Parlamento</span></div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Parlamento Europeo</strong> lo <strong>elige</strong> por <span class="pill pill-y">mayoría de los miembros que lo componen</span> (mayoría absoluta)</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Si es rechazado:</strong> el Consejo Europeo, en el plazo de <span class="pill pill-r">un mes</span>, propone un nuevo candidato por el mismo procedimiento</span></div>
+    </div>
+  </div>
+  <div class="fase">
+    <div class="fase-num">02</div>
+    <div class="fase-body">
+      <div class="fase-title">Adopción de la lista de los demás miembros</div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Consejo</strong>, de <span class="pill pill-y">común acuerdo con el Presidente electo</span>, adopta la lista de personalidades propuestas a partir de las candidaturas de cada EEMM</span></div>
+    </div>
+  </div>
+  <div class="fase" style="margin-bottom:0;">
+    <div class="fase-num">03</div>
+    <div class="fase-body">
+      <div class="fase-title">Voto de aprobación y nombramiento final</div>
+      <div class="item"><span class="arrow">→</span><span>El Presidente, el Alto Representante y los demás miembros se someten <strong>colegiadamente</strong> al <span class="pill pill-y">voto de aprobación del PE</span></span></div>
+      <div class="item"><span class="arrow">→</span><span>Sobre esa base, la Comisión es nombrada por el <strong>Consejo Europeo</strong> por <span class="pill pill-y">mayoría cualificada</span></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. MANDATO Y EXTINCIÓN -->
+<div class="section-label">03 · Mandato y causas de extinción — Art. 17.3 TUE</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Duración del mandato</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Duración:</strong> <span class="pill pill-y">5 años</span> — ligado a la legislatura del PE</span></div>
+    <div class="item"><span class="arrow">→</span><span>Los miembros son elegidos en razón de su <strong>competencia general</strong> y su <strong>compromiso europeo</strong>, entre personalidades que ofrezcan plenas garantías de independencia</span></div>
+    <div class="sub-head">Sustitución de un miembro</div>
+    <div class="item"><span class="arrow">→</span><span>El dimisionario, cesado o fallecido es sustituido por el resto de su mandato por un <strong>nuevo miembro de la misma nacionalidad</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Excepción:</strong> no se procede a la sustitución si el Consejo, por <span class="pill pill-r">unanimidad</span> a propuesta del Presidente, decide que no ha lugar (cuando queda poco tiempo de mandato)</span></div>
+    <div class="sub-head">Dimisión voluntaria colectiva</div>
+    <div class="item"><span class="arrow">→</span><span>En caso de dimisión voluntaria de todos los miembros, <strong>permanecen en sus cargos</strong> y continúan despachando asuntos ordinarios hasta ser sustituidos</span></div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Causas de extinción del mandato individual</div>
+    <div class="causa"><strong>1. Renovación periódica</strong> — fin natural del mandato de 5 años</div>
+    <div class="causa"><strong>2. Fallecimiento</strong></div>
+    <div class="causa"><strong>3. Dimisión voluntaria</strong></div>
+    <div class="causa"><strong>4. Cese</strong> — dos modalidades:
+      <div class="item" style="margin-top:6px;"><span class="arrow">→</span><span><strong>Cese por falta grave:</strong> puede ser cesado por el <span class="pill pill-r">Tribunal de Justicia</span>, a instancia del Consejo (mayoría simple) o de la Comisión</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Dimisión forzosa:</strong> un comisario presentará su dimisión <span class="pill pill-r">si se lo pide el Presidente</span> — incluye expresamente al Alto Representante</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. MOCIÓN DE CENSURA -->
+<div class="section-label">04 · Control parlamentario — La moción de censura — Art. 234 TFUE</div>
+<div class="block full red" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Moción de censura — responsabilidad colegiada ante el PE</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Ámbito y requisito de iniciativa</div>
+      <div class="item"><span class="arrow">→</span><span>Solo puede plantearse contra el <strong>Colegio en su conjunto</strong> — <span class="pill pill-r">nunca</span> contra un comisario individual</span></div>
+      <div class="item"><span class="arrow">→</span><span>Iniciativa: al menos <span class="pill pill-r">1/10 de los diputados</span> del PE</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Mayorías para su aprobación (doble condición)</div>
+      <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">2/3 de los votos emitidos</span></span></div>
+      <div class="item"><span class="arrow">→</span><span>Que representen la <span class="pill pill-r">mayoría de los diputados</span> que componen el PE</span></div>
+      <div class="alert" style="margin-top:8px;margin-bottom:0;">
+        <div class="alabel">⚠ Las dos condiciones son simultáneas</div>
+        No basta con una sola. Ambas deben cumplirse al mismo tiempo.
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Efectos de su aprobación</div>
+      <div class="item"><span class="arrow">→</span><span>Los miembros de la Comisión <strong>deberán dimitir colectivamente</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Alto Representante</strong> deberá dimitir del cargo que ejerce en la Comisión (Vicepresidente), pero <strong>mantiene sus funciones</strong> de representación exterior PESC</span></div>
+      <div class="item"><span class="arrow">→</span><span>El mandato de los sustitutos expirará en la fecha en que habría expirado el de la Comisión obligada a dimitir</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. FUNCIONES -->
+<div class="section-label">05 · Funciones y competencias — Art. 17.1 TUE</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Funciones principales</div>
+    <div class="sub-head" style="color:var(--accent);">Iniciativa legislativa — monopolio</div>
+    <div class="item"><span class="arrow">→</span><span>Los actos legislativos de la Unión <strong>solo pueden adoptarse a propuesta de la Comisión</strong>, excepto cuando los Tratados dispongan otra cosa</span></div>
+    <div class="item"><span class="arrow">→</span><span>Los actos no legislativos también se adoptan a propuesta suya cuando los Tratados así lo establezcan</span></div>
+    <div class="note" style="margin-top:6px;margin-bottom:10px;">
+      <div class="nlabel">Síntesis del papel</div>
+      Las funciones de la Comisión son, principalmente, de <strong>iniciativa y ejecución</strong>. La toma de decisiones queda reservada al Parlamento y al Consejo.
+    </div>
+    <div class="sub-head" style="color:var(--accent);">Guardiana de los Tratados</div>
+    <div class="item"><span class="arrow">→</span><span>Vela por la <strong>aplicación de los Tratados</strong> y de las medidas adoptadas por las instituciones</span></div>
+    <div class="item"><span class="arrow">→</span><span>Supervisa la aplicación del Derecho de la Unión bajo el control del TJUE</span></div>
+    <div class="sub-head" style="color:var(--accent);">Otras competencias</div>
+    <div class="item"><span class="arrow">→</span><span>Promueve el interés general y adopta iniciativas de programación</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presupuesto:</strong> ejecuta el presupuesto de la Unión y gestiona los programas</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Representación exterior:</strong> asume la representación de la UE, <span class="pill pill-r">excepto en PESC</span> (que corresponde al Presidente del Consejo Europeo y al Alto Representante)</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Funcionamiento interno</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Convocatoria:</strong> las reuniones son convocadas por el <strong>Presidente</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Periodicidad mínima:</strong> al menos <span class="pill pill-b">una vez por semana</span> en sesión ordinaria</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Asistencia:</strong> los miembros están <strong>obligados</strong> a asistir a todas las reuniones</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Publicidad:</strong> las reuniones <span class="pill pill-r">no son públicas</span> — los debates son <strong>estrictamente confidenciales</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Quórum de deliberación:</strong> <span class="pill pill-b">mayoría de sus miembros</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Votación:</strong> los acuerdos se adoptan por <span class="pill pill-b">mayoría de los miembros</span> (voto favorable de la mitad más uno)</span></div>
+    <div class="sub-head" style="margin-top:10px;">Poderes del Presidente</div>
+    <div class="item"><span class="arrow">→</span><span>Define las <strong>orientaciones</strong> con arreglo a las cuales la Comisión desempeña sus funciones</span></div>
+    <div class="item"><span class="arrow">→</span><span>Determina la <strong>organización interna</strong> velando por coherencia, eficacia y colegialidad</span></div>
+    <div class="item"><span class="arrow">→</span><span>Nombra <strong>Vicepresidentes</strong> de entre los miembros (excepción: el Alto Representante, predeterminado por el Consejo Europeo)</span></div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — La Comisión Europea</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Representa</td><td><strong>El interés general de la UE</strong> (≠ Consejo = EEMM; ≠ PE = ciudadanos)</td></tr>
+      <tr><td>Sede</td><td><strong>Bruselas</strong></td></tr>
+      <tr><td>Composición actual</td><td><strong>1 comisario por EEMM</strong> (27) — por decisión del Consejo Europeo de 22/05/2013</td></tr>
+      <tr><td>Composición teórica del Tratado</td><td><strong>2/3 del nº de EEMM</strong> — con rotación igualataria</td></tr>
+      <tr><td>Modificación del número</td><td>El <strong>Consejo Europeo por unanimidad</strong></td></tr>
+      <tr><td>Fase 1: Presidente — quién propone</td><td><strong>Consejo Europeo</strong> por mayoría cualificada (teniendo en cuenta elecciones PE)</td></tr>
+      <tr><td>Fase 1: Presidente — quién elige</td><td><strong>PE</strong> por mayoría absoluta (mayoría de los miembros que lo componen)</td></tr>
+      <tr><td>Si el PE rechaza al candidato</td><td>Consejo Europeo propone nuevo candidato en el plazo de <strong>1 mes</strong></td></tr>
+      <tr><td>Fase 2: lista de comisarios — quién la adopta</td><td>El <strong>Consejo</strong> de común acuerdo con el Presidente electo</td></tr>
+      <tr><td>Fase 3: aprobación final — quién vota</td><td><strong>PE</strong> (voto de aprobación colegiado)</td></tr>
+      <tr><td>Fase 3: nombramiento final — quién nombra</td><td><strong>Consejo Europeo</strong> por mayoría cualificada</td></tr>
+      <tr><td>Duración del mandato</td><td><strong>5 años</strong></td></tr>
+      <tr><td>Dimisión forzosa de un comisario</td><td>Si se lo pide el <strong>Presidente</strong> (incluye al Alto Representante)</td></tr>
+      <tr><td>Cese por falta grave</td><td>El <strong>TJUE</strong>, a instancia del Consejo (mayoría simple) o de la Comisión</td></tr>
+      <tr><td>No sustitución del comisario saliente</td><td>El Consejo por <strong>unanimidad</strong> a propuesta del Presidente</td></tr>
+      <tr><td>Moción de censura — quién puede iniciarla</td><td>Al menos <strong>1/10 de los diputados</strong> del PE</td></tr>
+      <tr><td>Moción de censura — aprobación (condición 1)</td><td><strong>2/3 de los votos emitidos</strong></td></tr>
+      <tr><td>Moción de censura — aprobación (condición 2)</td><td>Que representen la <strong>mayoría de los diputados</strong> del PE</td></tr>
+      <tr><td>Moción de censura — efectos</td><td>Dimisión colectiva de todos los miembros · Alto Rep. dimite como Vicepresidente pero mantiene funciones PESC</td></tr>
+      <tr><td>Moción de censura — ámbito</td><td>Solo contra el <strong>Colegio en su conjunto</strong> (nunca individual)</td></tr>
+      <tr><td>Monopolio de iniciativa legislativa</td><td><strong>Sí</strong> — los actos legislativos solo pueden adoptarse <em>a propuesta de la Comisión</em> (salvo excepción expresa)</td></tr>
+      <tr><td>Representación exterior — excepción</td><td><strong>PESC</strong> — corresponde al Presidente del Consejo Europeo y al Alto Representante</td></tr>
+      <tr><td>Reuniones — publicidad</td><td><span class="pill pill-r">No públicas</span> — debates estrictamente confidenciales</td></tr>
+      <tr><td>Reuniones — frecuencia mínima</td><td><strong>1 vez por semana</strong></td></tr>
+      <tr><td>Quórum de deliberación</td><td><strong>Mayoría de sus miembros</strong></td></tr>
+      <tr><td>Votación interna</td><td><strong>Mayoría de los miembros</strong> (mitad más uno)</td></tr>
+      <tr><td>Vicepresidentes — quién los nombra</td><td>El <strong>Presidente</strong> de la Comisión (excepción: el Alto Representante)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

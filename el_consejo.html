@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Consejo de la UE — Detalle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg: #0d0f14; --surface: #141720; --border: #252a38;
+    --accent: #e8c840; --accent2: #3d9eff; --accent3: #ff5f5f;
+    --accent4: #4ade80; --accent5: #c084fc;
+    --text: #d4d8e8; --muted: #6b7292;
+    --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 13px; line-height: 1.6; padding: 32px 24px; max-width: 980px; margin: 0 auto; }
+
+  /* NAV BACK */
+  .nav-back { margin-bottom: 20px; }
+  .nav-back a { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent4); text-decoration: none; border: 1px solid rgba(74,222,128,0.3); padding: 4px 10px; background: rgba(74,222,128,0.06); }
+  .nav-back a:hover { opacity: 0.75; }
+
+  .header { border-left: 4px solid var(--accent4); padding: 16px 20px; margin-bottom: 32px; background: var(--surface); }
+  .header .tag { font-family: var(--mono); font-size: 10px; color: var(--accent4); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-size: 20px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .header .sub { font-size: 11px; color: var(--muted); margin-top: 6px; font-family: var(--mono); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .full { grid-column: 1 / -1; }
+  .block { background: var(--surface); border: 1px solid var(--border); padding: 14px; }
+  .block-title { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 11px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .yellow .block-title { color: var(--accent); } .yellow .dot { background: var(--accent); }
+  .blue .block-title { color: var(--accent2); } .blue .dot { background: var(--accent2); }
+  .red .block-title { color: var(--accent3); } .red .dot { background: var(--accent3); }
+  .green .block-title { color: var(--accent4); } .green .dot { background: var(--accent4); }
+  .purple .block-title { color: var(--accent5); } .purple .dot { background: var(--accent5); }
+
+  .item { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12px; line-height: 1.5; }
+  .item:last-child { margin-bottom: 0; }
+  .item .arrow { color: var(--muted); flex-shrink: 0; font-family: var(--mono); font-size: 11px; margin-top: 1px; }
+  .item strong { color: #fff; font-weight: 600; }
+
+  .pill { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 2px; margin: 0 2px; }
+  .pill-y { background: rgba(232,200,64,0.15); color: var(--accent); border: 1px solid rgba(232,200,64,0.3); }
+  .pill-b { background: rgba(61,158,255,0.15); color: var(--accent2); border: 1px solid rgba(61,158,255,0.3); }
+  .pill-r { background: rgba(255,95,95,0.15); color: var(--accent3); border: 1px solid rgba(255,95,95,0.3); }
+  .pill-g { background: rgba(74,222,128,0.15); color: var(--accent4); border: 1px solid rgba(74,222,128,0.3); }
+  .pill-p { background: rgba(192,132,252,0.15); color: var(--accent5); border: 1px solid rgba(192,132,252,0.3); }
+
+  .section-label { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin: 22px 0 11px 0; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  th { font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  td { padding: 7px 8px; border-bottom: 1px solid rgba(37,42,56,0.5); vertical-align: top; line-height: 1.4; }
+  tr:last-child td { border-bottom: none; }
+  td strong { color: #fff; }
+
+  .alert { background: rgba(255,95,95,0.08); border: 1px solid rgba(255,95,95,0.25); padding: 10px 14px; font-size: 12px; margin-bottom: 8px; }
+  .alert .alabel { font-family: var(--mono); font-size: 9px; color: var(--accent3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .note { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2); padding: 10px 14px; font-size: 12px; margin-bottom: 8px; }
+  .note .nlabel { font-family: var(--mono); font-size: 9px; color: var(--accent4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .info { background: rgba(61,158,255,0.06); border: 1px solid rgba(61,158,255,0.22); padding: 10px 14px; font-size: 12px; margin-bottom: 8px; }
+  .info .ilabel { font-family: var(--mono); font-size: 9px; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+
+  .criba { background: rgba(232,200,64,0.04); border: 1px solid rgba(232,200,64,0.2); }
+  .criba .block-title { color: var(--accent); }
+  .criba th { color: var(--accent); }
+
+  .sub-head { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin: 10px 0 6px 0; }
+
+  /* Mayoría cualificada visual */
+  .mq-box { background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.25); padding: 12px 14px; margin-bottom: 10px; }
+  .mq-box .mq-title { font-family: var(--mono); font-size: 9px; color: var(--accent4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .mq-crit { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 12px; }
+  .mq-num { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--accent4); line-height: 1; min-width: 52px; }
+  .mq-label { color: var(--text); }
+  .mq-label small { display: block; font-size: 11px; color: var(--muted); }
+
+  /* Formaciones table highlight */
+  .form-cag { background: rgba(74,222,128,0.07); }
+  .form-cae { background: rgba(61,158,255,0.07); }
+
+  /* Flujo COREPER */
+  .flow { display: flex; align-items: stretch; gap: 0; margin: 10px 0; }
+  .flow-step { background: rgba(37,42,56,0.6); border: 1px solid var(--border); padding: 8px 12px; font-size: 11px; flex: 1; text-align: center; }
+  .flow-step strong { display: block; color: #fff; font-size: 12px; margin-bottom: 3px; }
+  .flow-step span { color: var(--muted); font-size: 10px; font-family: var(--mono); }
+  .flow-arrow { display: flex; align-items: center; padding: 0 4px; color: var(--accent4); font-family: var(--mono); font-size: 16px; }
+</style>
+</head>
+<body>
+
+<div class="nav-back">
+  <a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a>
+</div>
+
+<div class="header">
+  <div class="tag">Institución nº 2 · Art. 16 TUE · Arts. 237-243 TFUE</div>
+  <h1>El Consejo de la UE <span style="color:var(--muted);font-weight:300;">(Consejo de Ministros)</span></h1>
+  <div class="sub">Órgano intergubernamental · Co-legislador · Sede: Bruselas (y Luxemburgo en abril, junio y octubre)</div>
+</div>
+
+<!-- 1. NATURALEZA Y COMPOSICIÓN -->
+<div class="section-label">01 · Naturaleza jurídica y composición — Art. 16.2 TUE</div>
+<div class="grid-2">
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Naturaleza y carácter</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Definición:</strong> Institución que representa a los <strong>Gobiernos de los Estados miembros</strong>. Principal órgano de decisión junto al Parlamento Europeo</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Carácter:</strong> <span class="pill pill-g">Intergubernamental</span> — sus miembros defienden los intereses de sus propios Estados nacionales, a diferencia de la Comisión o el Parlamento</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede principal:</strong> Bruselas · <strong>Sede especial:</strong> Luxemburgo en los meses de <span class="pill pill-y">abril</span>, <span class="pill pill-y">junio</span> y <span class="pill pill-y">octubre</span></span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Composición — Art. 16.2 TUE</div>
+    <div class="item"><span class="arrow">→</span><span>Un <strong>representante de cada Estado miembro</strong> a nivel ministerial, facultado para <strong>comprometer al Gobierno</strong> de dicho Estado y para ejercer el derecho de voto</span></div>
+    <div class="note" style="margin-top:10px; margin-bottom:0;">
+      <div class="nlabel">⚠ Dato de examen</div>
+      No exige estrictamente un «Ministro» del Gobierno central: puede ser un <strong>Consejero autonómico</strong> si su legislación nacional lo permite y está plenamente facultado por su Gobierno.
+    </div>
+    <div class="sub-head">Publicidad de las sesiones</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Actos legislativos:</strong> el Consejo se reúne en <span class="pill pill-g">sesión pública</span> cuando delibera y vota sobre un proyecto de acto legislativo</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Actividades no legislativas</strong> (debates políticos, orientaciones…): <span class="pill pill-r">a puerta cerrada</span></span></div>
+  </div>
+</div>
+
+<!-- 2. FORMACIONES -->
+<div class="section-label">02 · Formaciones del Consejo</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Sistema de formaciones — no es un órgano permanente con los mismos miembros</div>
+  <div class="info" style="margin-bottom:12px;">
+    <div class="ilabel">Regla general</div>
+    El Consejo Europeo adopta por <strong>unanimidad</strong> la lista de las formaciones del Consejo, <strong>a excepción de las dos fijadas directamente por los Tratados (TUE)</strong>.
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Formación</th>
+        <th>Sigla</th>
+        <th>Función principal</th>
+        <th>Presidencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="form-cag">
+        <td><strong>Asuntos Generales</strong> <span class="pill pill-g" style="font-size:9px;">Fijada por TUE</span></td>
+        <td><span class="pill pill-g">CAG</span></td>
+        <td>Garantiza la coherencia de los trabajos de las distintas formaciones. Prepara las reuniones del Consejo Europeo y asegura su continuidad en enlace con el Presidente del Consejo Europeo y la Comisión</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+      <tr class="form-cae">
+        <td><strong>Asuntos Exteriores</strong> <span class="pill pill-g" style="font-size:9px;">Fijada por TUE</span></td>
+        <td><span class="pill pill-b">CAE</span></td>
+        <td>Elabora la acción exterior de la Unión según las líneas estratégicas del Consejo Europeo y garantiza la coherencia de la acción de la Unión</td>
+        <td><span class="pill pill-r">Alto Representante</span> — presidencia fija, no rotatoria</td>
+      </tr>
+      <tr>
+        <td><strong>Asuntos Económicos y Financieros</strong></td>
+        <td><span class="pill pill-y">ECOFIN</span></td>
+        <td>Política económica y presupuestaria, fiscalidad, mercados financieros</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+      <tr>
+        <td><strong>Justicia y Asuntos de Interior</strong></td>
+        <td><span class="pill pill-p">JAI</span></td>
+        <td>Cooperación judicial y policial, inmigración, asilo, fronteras exteriores</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+      <tr>
+        <td>Empleo, Política Social, Sanidad y Consumidores</td>
+        <td>—</td>
+        <td>Mercado laboral, protección social, salud pública</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+      <tr>
+        <td>Agricultura y Pesca</td>
+        <td>—</td>
+        <td>PAC, política pesquera común</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+      <tr>
+        <td>Medio Ambiente</td>
+        <td>—</td>
+        <td>Política medioambiental y climática</td>
+        <td>Presidencia rotatoria</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3. COREPER -->
+<div class="section-label">03 · El COREPER — Comité de Representantes Permanentes</div>
+<div class="block full green" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Función y estructura del COREPER</div>
+  <div class="item"><span class="arrow">→</span><span><strong>Definición:</strong> Órgano auxiliar fundamental encargado de <strong>preparar los trabajos</strong> de todas las reuniones del Consejo y de realizar las tareas que este le confíe</span></div>
+  <div class="item"><span class="arrow">→</span><span><strong>Composición:</strong> Embajadores y representantes permanentes de los Estados miembros ante la UE</span></div>
+  <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+    <div class="mq-box" style="border-color:rgba(74,222,128,0.3);">
+      <div class="mq-title">COREPER II</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Representantes Permanentes</strong> (Embajadores)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Prepara los consejos más <strong>políticos</strong>:</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>Asuntos Generales (CAG)</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>Asuntos Exteriores (CAE)</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>ECOFIN · JAI</span></div>
+    </div>
+    <div class="mq-box" style="border-color:rgba(61,158,255,0.3); background:rgba(61,158,255,0.05);">
+      <div class="mq-title" style="color:var(--accent2);">COREPER I</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Representantes Permanentes Adjuntos</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span>Prepara los consejos de carácter más <strong>técnico</strong>:</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>Medio Ambiente</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>Transporte · Empleo</span></div>
+      <div class="item" style="margin-left:16px;"><span class="arrow">·</span><span>Agricultura · otros técnicos</span></div>
+    </div>
+  </div>
+  <div style="margin-top:12px;">
+    <div class="sub-head">Flujo de trabajo</div>
+    <div class="flow">
+      <div class="flow-step"><strong>Comisión</strong><span>propuesta legislativa</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><strong>COREPER</strong><span>examina y prepara</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><strong>Consejo</strong><span>delibera y vota</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><strong>PE</strong><span>co-legisla (PLO)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. PRESIDENCIA ROTATORIA -->
+<div class="section-label">04 · Sistema de presidencia rotatoria</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>El Trío de Presidencias</div>
+    <div class="item"><span class="arrow">→</span><span>A excepción de la formación de <strong>Asuntos Exteriores</strong> (dirigida por el Alto Representante), la presidencia de todas las formaciones se ejerce mediante un sistema de <strong>rotación igualataria</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Trío:</strong> grupos predeterminados de <span class="pill pill-y">3 Estados miembros</span> coordinan la presidencia durante un período de <span class="pill pill-y">18 meses</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mandato individual:</strong> cada uno de los 3 Estados preside todas las formaciones (salvo Exteriores) durante <span class="pill pill-y">6 meses</span>, mientras los otros dos le asisten según un programa común</span></div>
+    <div class="note" style="margin-top:10px; margin-bottom:0;">
+      <div class="nlabel">Excepción clave — test</div>
+      El <strong>CAE</strong> es la única formación con presidencia <strong>fija y permanente</strong>: el Alto Representante de la Unión para Asuntos Exteriores y Política de Seguridad.
+    </div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Funciones principales — Art. 16.1 TUE</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función Legislativa:</strong> ejerce la potestad legislativa <strong>conjuntamente con el PE</strong> (mediante procedimiento legislativo ordinario o especial)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función Presupuestaria:</strong> aprueba el presupuesto de la Unión <strong>conjuntamente con el PE</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Definición de políticas:</strong> ejerce funciones de definición de políticas y coordinación en las condiciones establecidas en los Tratados</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Relaciones internacionales:</strong> celebra los acuerdos internacionales negociados por la Comisión Europea</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>PESC:</strong> coordinación en materia de Política Exterior y de Seguridad Común</span></div>
+  </div>
+</div>
+
+<!-- 5. VOTACIÓN -->
+<div class="section-label">05 · Reglas de votación — Tres modalidades</div>
+
+<div class="grid-3" style="margin-bottom:14px;">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>A · Mayoría Simple</div>
+    <div class="item"><span class="arrow">→</span><span>Utilizada para <strong>cuestiones de procedimiento</strong> y para la adopción de su reglamento interno</span></div>
+    <div class="item"><span class="arrow">→</span><span>Se alcanza cuando votan a favor la <strong>mitad más uno</strong> de los Estados miembros</span></div>
+    <div class="item"><span class="arrow">→</span><span>Actualmente: <span class="pill pill-b">14 de 27</span> Estados</span></div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>B · Unanimidad</div>
+    <div class="item"><span class="arrow">→</span><span>Reservada para materias de <strong>especial sensibilidad soberana</strong>:</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Política Exterior y de Seguridad Común (PESC)</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Fiscalidad</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Protección social</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Adhesión de nuevos miembros</span></div>
+    <div class="note" style="margin-top:10px; margin-bottom:0;">
+      <div class="nlabel">Abstención ≠ veto</div>
+      Las <strong>abstenciones</strong> de los miembros presentes o representados <strong>no impiden</strong> la adopción de los acuerdos que requieran unanimidad.
+    </div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>C · Mayoría Cualificada <span style="font-size:9px;opacity:0.7;">(regla general)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Desde <span class="pill pill-g">1 de noviembre de 2014</span> · Sistema de <strong>doble mayoría</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Cuando el Consejo actúa <strong>a propuesta de la Comisión o del Alto Representante</strong>:</span></div>
+  </div>
+</div>
+
+<!-- MQ DETALLE -->
+<div class="block full green" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Mayoría Cualificada — Sistema de Doble Mayoría (Doble Condición Simultánea)</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+    <div class="mq-box">
+      <div class="mq-title">Criterio 1 — Estados (55%)</div>
+      <div class="mq-crit">
+        <div class="mq-num">55%</div>
+        <div class="mq-label">de los miembros del Consejo<small>Actualmente: al menos <strong>15 de 27</strong> Estados</small></div>
+      </div>
+    </div>
+    <div class="mq-box">
+      <div class="mq-title">Criterio 2 — Población (65%)</div>
+      <div class="mq-crit">
+        <div class="mq-num">65%</div>
+        <div class="mq-label">de la población total de la UE<small>Deben ser los mismos Estados que votan a favor</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-head">La minoría de bloqueo</div>
+  <div class="alert" style="margin-bottom:10px;">
+    <div class="alabel">⚠ Regla anti-concentración</div>
+    Para evitar que un número muy reducido de países muy poblados bloquee una votación, la <strong>minoría de bloqueo debe incluir obligatoriamente al menos a 4 miembros del Consejo</strong>.<br><br>
+    Si no se alcanzan esos 4 Estados, la mayoría cualificada se considerará <strong>alcanzada</strong> aunque no se llegue estrictamente al 65% de la población.
+  </div>
+
+  <div class="sub-head">Variación: cuando el Consejo NO actúa a propuesta de la Comisión</div>
+  <div class="info" style="margin-bottom:0;">
+    <div class="ilabel">Umbrales elevados</div>
+    En supuestos donde la iniciativa no parte de la Comisión ni del Alto Representante (ej. cooperación judicial penal, iniciativa de los propios Estados):
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px;">
+      <div class="item"><span class="arrow">→</span><span><span class="pill pill-b">72% de los Estados</span> — actualmente al menos <strong>20 de 27</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span><span class="pill pill-b">65% de la población</span> — mismo requisito que el régimen general</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA FINAL -->
+<div class="section-label">🎯 · Kit de criba directa — El Consejo de la UE</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Carácter del Consejo</td><td><strong>Intergubernamental</strong> — defiende intereses nacionales (≠ Comisión, ≠ PE)</td></tr>
+      <tr><td>Composición</td><td>Un representante por EEMM de <strong>rango ministerial</strong>, facultado para comprometer al Gobierno</td></tr>
+      <tr><td>¿Puede ser un Consejero autonómico?</td><td><span class="pill pill-g">Sí</span> — si la legislación nacional lo permite y está plenamente facultado</td></tr>
+      <tr><td>Sede habitual</td><td><strong>Bruselas</strong></td></tr>
+      <tr><td>Sede especial</td><td><strong>Luxemburgo</strong> en los meses de <strong>abril, junio y octubre</strong></td></tr>
+      <tr><td>Sesiones legislativas — publicidad</td><td><span class="pill pill-g">Públicas</span> cuando delibera y vota actos legislativos</td></tr>
+      <tr><td>Sesiones no legislativas — publicidad</td><td><span class="pill pill-r">A puerta cerrada</span></td></tr>
+      <tr><td>Formaciones fijadas directamente por el TUE</td><td><strong>CAG</strong> (Asuntos Generales) y <strong>CAE</strong> (Asuntos Exteriores) — solo estas dos</td></tr>
+      <tr><td>Quien fija las demás formaciones</td><td>El <strong>Consejo Europeo</strong> por unanimidad</td></tr>
+      <tr><td>Presidencia del CAE</td><td><span class="pill pill-r">Alto Representante</span> — permanente, no rotatoria</td></tr>
+      <tr><td>Presidencia del resto de formaciones</td><td>Rotatoria: <strong>6 meses</strong> por Estado en grupos de <strong>3 Estados (18 meses)</strong></td></tr>
+      <tr><td>COREPER II — quiénes y qué prepara</td><td>Embajadores → consejos políticos (CAG, CAE, ECOFIN, JAI)</td></tr>
+      <tr><td>COREPER I — quiénes y qué prepara</td><td>Adjuntos → consejos técnicos (Medio Ambiente, Transporte, Empleo…)</td></tr>
+      <tr><td>Votación: regla general</td><td><strong>Mayoría cualificada</strong> — doble mayoría</td></tr>
+      <tr><td>Mayoría cualificada — condición 1</td><td><span class="pill pill-g">55%</span> de los Estados = al menos <strong>15 de 27</strong></td></tr>
+      <tr><td>Mayoría cualificada — condición 2</td><td><span class="pill pill-g">65%</span> de la población de la UE</td></tr>
+      <tr><td>Minoría de bloqueo</td><td>Obligatoriamente <strong>al menos 4 Estados</strong></td></tr>
+      <tr><td>Sin propuesta de la Comisión — umbrales</td><td><span class="pill pill-b">72%</span> de Estados + <span class="pill pill-b">65%</span> de población</td></tr>
+      <tr><td>Unanimidad: ¿la abstención bloquea?</td><td><span class="pill pill-r">No</span> — la abstención no impide la unanimidad</td></tr>
+      <tr><td>Mayoría simple: para qué</td><td>Cuestiones de <strong>procedimiento</strong> y reglamento interno</td></tr>
+      <tr><td>Mayoría simple: cuántos</td><td><strong>14 de 27</strong> Estados (mitad más uno)</td></tr>
+      <tr><td>Unanimidad: materias</td><td>PESC · fiscalidad · protección social · adhesiones</td></tr>
+      <tr><td>Funciones principales</td><td>Legislativa + Presupuestaria (con PE) · Definición de políticas · Acuerdos internacionales · PESC</td></tr>
+      <tr><td>Fecha de aplicación doble mayoría</td><td><strong>1 de noviembre de 2014</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

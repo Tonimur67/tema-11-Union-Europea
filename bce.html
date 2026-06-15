@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCE — Banco Central Europeo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root{--bg:#0d0f14;--surface:#141720;--border:#252a38;--accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;--text:#d4d8e8;--muted:#6b7292;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent5);text-decoration:none;border:1px solid rgba(192,132,252,.3);padding:4px 10px;background:rgba(192,132,252,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent5);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent5);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Órganos BCE */
+  .organo{border:1px solid var(--border);padding:12px 14px;margin-bottom:10px;background:rgba(192,132,252,.04);}
+  .organo:last-child{margin-bottom:0;}
+  .organo-title{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .organo-badge{font-size:9px;padding:1px 6px;border:1px solid rgba(192,132,252,.3);border-radius:2px;}
+
+  /* Países euro grid */
+  .paises-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:8px;}
+  .pais{font-size:11px;padding:4px 8px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.15);color:var(--accent4);}
+  .pais-no{background:rgba(255,95,95,.05);border-color:rgba(255,95,95,.15);color:var(--accent3);}
+
+  /* SEBC vs Eurosistema */
+  .sistema-card{border:1px solid var(--border);padding:14px;flex:1;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 7 · Arts. 282-284 TFUE · Lisboa 2009</div>
+  <h1>Banco Central Europeo <span style="color:var(--muted);font-weight:300;">(BCE)</span></h1>
+  <div class="sub">Elevado a institución por Lisboa (2009) · Estabilidad de precios · Sede: Fráncfort (Alemania)</div>
+</div>
+
+<!-- 1. CREACIÓN E HISTORIA -->
+<div class="section-label">01 · Creación y evolución</div>
+<div class="block full purple" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Hitos clave</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent5);">1998 — Creación</div>
+      <div class="item"><span class="arrow">→</span><span>El BCE se crea en <strong>1998</strong>, en el contexto de la preparación de la moneda única, sustituyendo al Instituto Monetario Europeo (IME)</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent5);">1999 — Euro</div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>1 de enero de 1999</strong> entra en vigor el euro para las transacciones financieras (11 países iniciales). En 2002: circulación de billetes y monedas</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">2009 — Lisboa: institución</div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Tratado de Lisboa (1 de diciembre de 2009)</strong> le otorga la condición de <strong>institución de la UE de pleno derecho</strong> (junto al Consejo Europeo)</span></div>
+    </div>
+  </div>
+  <div class="alert" style="margin-top:14px;margin-bottom:0;">
+    <div class="alabel">⚠ Confusión clásica de test</div>
+    El BCE y el <strong>Consejo Europeo</strong> son las dos instituciones elevadas por <strong>Lisboa (2009)</strong>. El Tribunal de Cuentas ya era institución desde Maastricht (1993).
+  </div>
+</div>
+
+<!-- 2. ÓRGANOS DE GOBIERNO -->
+<div class="section-label">02 · Órganos de gobierno</div>
+<div class="block full purple" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Cuatro órganos — dos fundamentales</div>
+  <div class="organo">
+    <div class="organo-title"><span class="pill-p pill" style="font-size:9px;">FUNDAMENTAL</span> A · Comité Ejecutivo</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div>
+        <div class="item"><span class="arrow">→</span><span><strong>Formación:</strong> Presidente del BCE + Vicepresidente + 4 miembros más = <span class="pill pill-p">6 miembros</span></span></div>
+        <div class="item"><span class="arrow">→</span><span><strong>Nombramiento:</strong> por el <span class="pill pill-p">Consejo Europeo</span>, por mayoría cualificada</span></div>
+        <div class="item"><span class="arrow">→</span><span><strong>Mandato:</strong> <span class="pill pill-p">8 años</span> · <span class="pill pill-r">No renovable</span></span></div>
+      </div>
+      <div>
+        <div class="item"><span class="arrow">→</span><span><strong>Función:</strong> aplica la política monetaria de acuerdo con las orientaciones del Consejo de Gobierno · Gestión corriente del BCE · Instrucciones a los bancos centrales nacionales</span></div>
+        <div class="note" style="margin-bottom:0;">
+          <div class="nlabel">Actuales (referencia)</div>
+          Presidenta: <strong>Christine Lagarde</strong> (desde 1 nov 2019)<br>
+          Vicepresidente: <strong>Luis de Guindos</strong> (desde 1 jun 2018)
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="organo">
+    <div class="organo-title"><span class="pill-p pill" style="font-size:9px;">FUNDAMENTAL</span> B · Consejo de Gobierno</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Formación:</strong> todos los miembros del Comité Ejecutivo + los <strong>gobernadores de los bancos centrales nacionales de los EEMM cuya moneda es el euro</strong> (actualmente 20)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función principal:</strong> órgano rector supremo · Define la política monetaria de la zona euro · Fija los tipos de interés</span></div>
+  </div>
+  <div class="organo" style="background:rgba(107,114,146,.05);">
+    <div class="organo-title" style="color:var(--muted);">C · Consejo General <span class="organo-badge" style="color:var(--muted);border-color:var(--border);">Transitorio</span></div>
+    <div class="item"><span class="arrow">→</span><span>Compuesto por el Presidente y Vicepresidente del BCE + los gobernadores de los bancos centrales de <strong>todos los EEMM</strong> (incluidos los de fuera del euro)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Función de transición hasta que todos los EEMM adopten el euro · Se disolverá en ese momento</span></div>
+  </div>
+  <div class="organo" style="background:rgba(107,114,146,.05);">
+    <div class="organo-title" style="color:var(--muted);">D · Consejo de Supervisión</div>
+    <div class="item"><span class="arrow">→</span><span>Creado en 2014 en el marco del Mecanismo Único de Supervisión (MUS) · Supervisa las entidades de crédito de la zona euro</span></div>
+  </div>
+</div>
+
+<!-- 3. FUNCIONES -->
+<div class="section-label">03 · Funciones y atribuciones — Art. 282 TFUE</div>
+<div class="grid-2">
+  <div class="block purple">
+    <div class="block-title"><span class="dot"></span>Funciones principales</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Objetivo primordial:</strong> mantener la <span class="pill pill-p">estabilidad de precios</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Exclusividad:</strong> le corresponde en exclusiva <span class="pill pill-p">autorizar la emisión del euro</span> · Solo el BCE y los bancos centrales nacionales del Eurosistema pueden emitir billetes en euros</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Política monetaria:</strong> define y ejecuta la política monetaria de la Unión (para los EEMM del euro)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Independencia total:</strong> ni el BCE, ni los bancos centrales nacionales del SEBC, ni ninguno de sus órganos rectores, podrán solicitar ni aceptar instrucciones de las instituciones, órganos u organismos de la Unión, ni de los Gobiernos de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presupuesto propio:</strong> es la única institución de la UE que no remite sus previsiones de gasto a la Comisión para el presupuesto general de la UE</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>SEBC vs Eurosistema — distinción clave</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="sistema-card" style="border-color:rgba(61,158,255,.3);background:rgba(61,158,255,.04);">
+        <div class="sub-head" style="color:var(--accent2);">SEBC — Sistema Europeo de Bancos Centrales</div>
+        <div class="item"><span class="arrow">→</span><span>BCE + bancos centrales de <strong>todos los EEMM</strong> (27) — incluidos los que no tienen el euro</span></div>
+        <div class="item"><span class="arrow">→</span><span><strong>Objetivo:</strong> mantener la estabilidad de precios</span></div>
+      </div>
+      <div class="sistema-card" style="border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04);">
+        <div class="sub-head" style="color:var(--accent4);">Eurosistema</div>
+        <div class="item"><span class="arrow">→</span><span>BCE + bancos centrales de los <strong>20 EEMM con el euro</strong></span></div>
+        <div class="item"><span class="arrow">→</span><span><strong>Objetivo:</strong> dirigir la política monetaria de la zona euro</span></div>
+      </div>
+    </div>
+    <div class="alert" style="margin-top:10px;margin-bottom:0;">
+      <div class="alabel">⚠ Test frecuente</div>
+      El SEBC incluye <strong>todos</strong> los EEMM (también los que no tienen euro). El Eurosistema solo los <strong>20</strong> del euro.
+    </div>
+  </div>
+</div>
+
+<!-- 4. ZONA EURO -->
+<div class="section-label">04 · Composición de la zona euro (20 países)</div>
+<div class="block full purple" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Eurozona y países fuera del euro</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">✓ Zona Euro — 20 países</div>
+      <div class="item"><span class="arrow">→</span><span>Última incorporación: <strong>Croacia</strong> — <span class="pill pill-g">1 de enero de 2023</span></span></div>
+      <div class="paises-grid">
+        <div class="pais">Alemania</div><div class="pais">Austria</div><div class="pais">Bélgica</div><div class="pais">Chipre</div>
+        <div class="pais">Croacia</div><div class="pais">Eslovaquia</div><div class="pais">Eslovenia</div><div class="pais">España</div>
+        <div class="pais">Estonia</div><div class="pais">Finlandia</div><div class="pais">Francia</div><div class="pais">Grecia</div>
+        <div class="pais">Irlanda</div><div class="pais">Italia</div><div class="pais">Letonia</div><div class="pais">Lituania</div>
+        <div class="pais">Luxemburgo</div><div class="pais">Malta</div><div class="pais">P. Bajos</div><div class="pais">Portugal</div>
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">✗ Fuera del euro — 7 países</div>
+      <div class="item"><span class="arrow">→</span><span>EEMM de la UE que <strong>no han adoptado</strong> la moneda única:</span></div>
+      <div class="paises-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="pais pais-no">Bulgaria</div><div class="pais pais-no">Dinamarca</div>
+        <div class="pais pais-no">Hungría</div><div class="pais pais-no">Polonia</div>
+        <div class="pais pais-no">Rep. Checa</div><div class="pais pais-no">Rumanía</div>
+        <div class="pais pais-no">Suecia</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — BCE</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Creación</td><td><strong>1998</strong></td></tr>
+      <tr><td>Elevado a institución de la UE</td><td><strong>Tratado de Lisboa</strong> — 1 de diciembre de <strong>2009</strong> (junto al Consejo Europeo)</td></tr>
+      <tr><td>Sede</td><td><strong>Fráncfort</strong> (Alemania)</td></tr>
+      <tr><td>Objetivo primordial</td><td>Mantener la <strong>estabilidad de precios</strong></td></tr>
+      <tr><td>Función exclusiva</td><td>Autorizar la <strong>emisión del euro</strong></td></tr>
+      <tr><td>Independencia</td><td><strong>Total</strong> — no acepta instrucciones de Gobiernos ni instituciones</td></tr>
+      <tr><td>Presupuesto</td><td><strong>Propio</strong> — no remite previsiones a la Comisión</td></tr>
+      <tr><td>Órganos de gobierno</td><td>Comité Ejecutivo · Consejo de Gobierno · Consejo General · Consejo de Supervisión</td></tr>
+      <tr><td>Comité Ejecutivo — composición</td><td>Presidente + Vicepresidente + <strong>4 miembros</strong> = <strong>6 en total</strong></td></tr>
+      <tr><td>Comité Ejecutivo — quién nombra</td><td><strong>Consejo Europeo</strong> por mayoría cualificada</td></tr>
+      <tr><td>Comité Ejecutivo — mandato</td><td><strong>8 años</strong> · <strong>No renovable</strong></td></tr>
+      <tr><td>Consejo de Gobierno — composición</td><td>Comité Ejecutivo + gobernadores BCN de los <strong>20 EEMM con euro</strong></td></tr>
+      <tr><td>Presidenta actual</td><td><strong>Christine Lagarde</strong> (desde 1 nov 2019)</td></tr>
+      <tr><td>SEBC — qué incluye</td><td>BCE + BCN de <strong>todos los EEMM</strong> (27, incluidos los sin euro)</td></tr>
+      <tr><td>Eurosistema — qué incluye</td><td>BCE + BCN de los <strong>20 EEMM con euro</strong></td></tr>
+      <tr><td>Zona euro — nº de países</td><td><strong>20</strong></td></tr>
+      <tr><td>Última incorporación al euro</td><td><strong>Croacia</strong> — 1 de enero de <strong>2023</strong></td></tr>
+      <tr><td>EEMM fuera del euro</td><td><strong>7</strong>: Bulgaria, Dinamarca, Hungría, Polonia, Rep. Checa, Rumanía, Suecia</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

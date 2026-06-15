@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tribunal de Cuentas Europeo — Detalle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg:#0d0f14;--surface:#141720;--border:#252a38;
+    --accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;
+    --text:#d4d8e8;--muted:#6b7292;
+    --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid rgba(232,200,64,.3);padding:4px 10px;background:rgba(232,200,64,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Timeline hitos */
+  .timeline{position:relative;padding-left:28px;}
+  .timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--border);}
+  .tl-item{position:relative;margin-bottom:14px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-dot{position:absolute;left:-24px;top:3px;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);}
+  .tl-year{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);margin-bottom:3px;}
+  .tl-body{font-size:12px;line-height:1.5;}
+  .tl-body strong{color:#fff;}
+
+  /* Mandato visual */
+  .mandato-box{display:flex;align-items:center;gap:16px;padding:14px;background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);margin-bottom:10px;}
+  .mandato-num{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--accent);line-height:1;}
+  .mandato-label strong{display:block;color:#fff;font-size:13px;}
+  .mandato-label small{color:var(--muted);font-size:11px;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 6 · Arts. 285-287 TFUE</div>
+  <h1>El Tribunal de Cuentas Europeo</h1>
+  <div class="sub">Fiscalizador externo de la UE · Sin función jurisdiccional · Sede: Luxemburgo</div>
+</div>
+
+<!-- 1. CREACIÓN E HISTORIA -->
+<div class="section-label">01 · Creación y evolución histórica</div>
+<div class="block full yellow" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Hitos históricos</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1975 — Creación</div>
+      <div class="tl-body">Creado por el <strong>Tratado de Bruselas de 22 de julio de 1975</strong>. Nace como órgano de control financiero externo de las Comunidades Europeas, pero sin rango institucional.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1 de noviembre de 1993 — Institución de pleno derecho</div>
+      <div class="tl-body">El <strong>Tratado de Maastricht</strong> le otorga la condición de <strong>institución europea de pleno derecho</strong>. Es el único órgano de las instituciones actuales que adquirió rango institucional con Maastricht (no con Lisboa).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--accent4);"></div>
+      <div class="tl-year">2009 — Lisboa</div>
+      <div class="tl-body">El Tratado de Lisboa consolida su posición en el art. 285 TFUE. Su sede queda fijada en <strong>Luxemburgo</strong>.</div>
+    </div>
+  </div>
+  <div class="alert" style="margin-top:14px;margin-bottom:0;">
+    <div class="alabel">⚠ Confusión clásica de test</div>
+    El Tribunal de Cuentas se elevó a institución con <strong>Maastricht (1993)</strong>, NO con Lisboa. Lisboa elevó a instituciones el <strong>Consejo Europeo</strong> y el <strong>BCE</strong>.
+  </div>
+</div>
+
+<!-- 2. COMPOSICIÓN Y NOMBRAMIENTO -->
+<div class="section-label">02 · Composición y designación — Art. 285-286 TFUE</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Composición</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Un nacional de cada Estado miembro</strong> — actualmente <span class="pill pill-y">27 miembros</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Perfil exigido:</strong> personalidades que pertenezcan o hayan pertenecido en sus respectivos Estados a <strong>instituciones de control externo</strong>, o que estén especialmente cualificadas para esta función</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Independencia:</strong> ejercerán sus funciones con <span class="pill pill-y">plena independencia</span>, en interés general de la Unión</span></div>
+    <div class="item"><span class="arrow">→</span><span>No solicitarán ni aceptarán instrucciones de ningún Gobierno ni organismo</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Sede</div>
+      <strong>Luxemburgo</strong> — comparte ciudad con el TJUE y la Secretaría General del PE
+    </div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Designación de los miembros — Art. 286 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span>Los nombra el <strong>Consejo</strong> (de la UE), previa consulta al <strong>Parlamento Europeo</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>El Consejo adoptará la lista de conformidad con las <strong>propuestas de cada Estado miembro</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>La votación en el Consejo se hace por <span class="pill pill-b">mayoría cualificada</span></span></div>
+    <div class="mandato-box" style="margin-top:12px;">
+      <div class="mandato-num">6</div>
+      <div class="mandato-label">
+        <strong>años de mandato</strong>
+        <small>Renovable · Renovación parcial cada 3 años</small>
+      </div>
+    </div>
+    <div class="info" style="margin-bottom:0;">
+      <div class="ilabel">Presidente del Tribunal de Cuentas</div>
+      Elegido por los <strong>propios miembros</strong> del Tribunal de entre ellos mismos · Mandato: <span class="pill pill-b">3 años</span> · Renovable
+    </div>
+  </div>
+</div>
+
+<!-- 3. FUNCIONES -->
+<div class="section-label">03 · Funciones — Art. 287 TFUE</div>
+<div class="block full yellow" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Misión: la fiscalización de las cuentas de la UE</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent);">Función principal</div>
+      <div class="item"><span class="arrow">→</span><span>Le corresponde la <strong>fiscalización</strong> (control externo) de las cuentas de la Unión</span></div>
+      <div class="item"><span class="arrow">→</span><span>Examina las cuentas de <strong>todos los ingresos y gastos</strong> de la Unión y de todo organismo u órgano creado por ella</span></div>
+      <div class="item"><span class="arrow">→</span><span>Comprueba la <strong>legalidad y regularidad</strong> de los ingresos y gastos, y la <strong>buena gestión financiera</strong></span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent);">Asistencia al PE y al Consejo</div>
+      <div class="item"><span class="arrow">→</span><span>Asiste al <strong>Parlamento Europeo</strong> y al <strong>Consejo</strong> en el ejercicio de su función de control de la ejecución del presupuesto</span></div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Informe anual</strong> se publica en el DOUE con las observaciones de las instituciones y sirve de base para que el PE apruebe la gestión presupuestaria de la Comisión</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Lo que NO hace</div>
+      <div class="alert" style="margin-bottom:8px;">
+        <div class="alabel">⚠ Sin función jurisdiccional</div>
+        El Tribunal de Cuentas <strong>no puede imponer sanciones</strong>, no dicta sentencias, no es un tribunal de justicia. Solo fiscaliza y emite informes.<br><br>
+        Si detecta irregularidades, las pone en conocimiento del <strong>OLAF</strong> (Oficina Europea de Lucha contra el Fraude) y del <strong>TJUE</strong>.
+      </div>
+      <div class="note" style="margin-bottom:0;">
+        <div class="nlabel">Su nombre es confuso</div>
+        «Tribunal» no significa que tenga poderes judiciales. Es simplemente el órgano de <strong>auditoría externa</strong> de la UE.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. INFORMES -->
+<div class="section-label">04 · Instrumentos de actuación — Informes y dictámenes</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Informe anual</div>
+    <div class="item"><span class="arrow">→</span><span>Elabora un <strong>informe anual</strong> tras el cierre de cada ejercicio presupuestario</span></div>
+    <div class="item"><span class="arrow">→</span><span>Se transmite a las demás instituciones y se <strong>publica en el DOUE</strong> junto con las respuestas de las instituciones</span></div>
+    <div class="item"><span class="arrow">→</span><span>Base para la <strong>aprobación de la gestión</strong> que otorga el PE a la Comisión</span></div>
+    <div class="item"><span class="arrow">→</span><span>Incluye la <strong>Declaración de Fiabilidad</strong> (DAS): sobre la fiabilidad de las cuentas y la legalidad y regularidad de las operaciones subyacentes</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Otros instrumentos</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Informes especiales:</strong> sobre cuestiones específicas, a iniciativa propia o a petición de otra institución</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Dictámenes:</strong> preceptivos cuando se adoptan reglamentos financieros o normas presupuestarias; también a petición de cualquier institución</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Control in situ:</strong> puede realizar controles en los EEMM, en colaboración con sus instituciones nacionales de control</span></div>
+    <div class="item"><span class="arrow">→</span><span>Las instituciones y los EEMM están <strong>obligados a facilitar</strong> los documentos e informaciones que solicite</span></div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — Tribunal de Cuentas</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Creación</td><td><strong>1975</strong> — Tratado de Bruselas de 22 de julio</td></tr>
+      <tr><td>Elevado a institución</td><td><strong>Tratado de Maastricht</strong> — 1 de noviembre de <strong>1993</strong></td></tr>
+      <tr><td>¿Lo elevó Lisboa a institución?</td><td><span class="pill pill-r">No</span> — Lisboa elevó el Consejo Europeo y el BCE. El TC ya era institución desde Maastricht</td></tr>
+      <tr><td>Sede</td><td><strong>Luxemburgo</strong></td></tr>
+      <tr><td>Composición</td><td><strong>1 nacional por EEMM</strong> — actualmente 27 miembros</td></tr>
+      <tr><td>Perfil exigido</td><td>Miembros de instituciones de <strong>control externo</strong> en sus EEMM, o especialmente cualificados</td></tr>
+      <tr><td>Quién los nombra</td><td>El <strong>Consejo</strong> (mayoría cualificada), previa consulta al <strong>PE</strong></td></tr>
+      <tr><td>Propuesta de candidatos</td><td>Cada <strong>Estado miembro</strong></td></tr>
+      <tr><td>Mandato de los miembros</td><td><strong>6 años</strong> · Renovable</td></tr>
+      <tr><td>Presidente — quién lo elige</td><td>Los <strong>propios miembros</strong> del Tribunal, de entre ellos</td></tr>
+      <tr><td>Presidente — mandato</td><td><strong>3 años</strong> · Renovable</td></tr>
+      <tr><td>Función principal</td><td><strong>Fiscalización</strong> de las cuentas de la UE y todos sus organismos</td></tr>
+      <tr><td>¿Tiene función jurisdiccional?</td><td><span class="pill pill-r">No</span> — no impone sanciones, no dicta sentencias</td></tr>
+      <tr><td>¿A quién asiste?</td><td>Al <strong>PE</strong> y al <strong>Consejo</strong> en el control de la ejecución del presupuesto</td></tr>
+      <tr><td>Informe anual — dónde se publica</td><td>En el <strong>DOUE</strong>, con las respuestas de las instituciones</td></tr>
+      <tr><td>Para qué sirve el informe anual</td><td>Base para que el <strong>PE</strong> apruebe la gestión de la <strong>Comisión</strong></td></tr>
+      <tr><td>Declaración de Fiabilidad (DAS)</td><td>Incluida en el informe anual — sobre fiabilidad de cuentas y legalidad de operaciones</td></tr>
+      <tr><td>Si detecta fraude</td><td>Lo pone en conocimiento del <strong>OLAF</strong> y el <strong>TJUE</strong></td></tr>
+      <tr><td>Independencia</td><td>Plena — no aceptan instrucciones de Gobiernos ni organismos</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

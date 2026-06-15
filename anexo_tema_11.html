@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo Tema 11 — Órganos consultivos, Presupuesto, Fuentes y Competencias UE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root{--bg:#0d0f14;--surface:#141720;--border:#252a38;--accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;--text:#d4d8e8;--muted:#6b7292;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);text-decoration:none;border:1px solid rgba(61,158,255,.3);padding:4px 10px;background:rgba(61,158,255,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent2);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Flujo presupuesto */
+  .flow{display:flex;flex-direction:column;gap:0;}
+  .flow-step{border:1px solid var(--border);padding:9px 12px;font-size:12px;border-bottom:none;background:rgba(255,255,255,.02);}
+  .flow-step:last-child{border-bottom:1px solid var(--border);}
+  .flow-step .fdate{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent);margin-bottom:3px;}
+  .flow-step strong{color:#fff;}
+
+  /* Competencias tarjetas */
+  .comp-card{border:1px solid var(--border);padding:12px 14px;margin-bottom:10px;}
+  .comp-card:last-child{margin-bottom:0;}
+  .comp-type{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+  .comp-items{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+  .comp-item{font-size:11px;padding:3px 8px;border-radius:2px;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Tema 11 · Anexo · TFUE arts. 2-6 · 310-324</div>
+  <h1>Anexo Tema 11</h1>
+  <div class="sub">Órganos consultivos · Presupuestos · Fuentes del Derecho UE · Competencias de la Unión</div>
+</div>
+
+<!-- 1. ÓRGANOS CONSULTIVOS -->
+<div class="section-label">01 · Órganos consultivos de la UE — No son instituciones</div>
+<div class="alert" style="margin-bottom:14px;">
+  <div class="alabel">⚠ Clave de test</div>
+  El <strong>CESE</strong> y el <strong>CDR</strong> son órganos <strong>consultivos</strong>, <strong>NO instituciones</strong> de la UE. Solo hay 7 instituciones (art. 13 TUE).
+</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Aspectos comunes a ambos Comités</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head">Sede</div>
+      <div class="item"><span class="arrow">→</span><span>Ambos en <strong>Bruselas</strong></span></div>
+    </div>
+    <div>
+      <div class="sub-head">Funciones</div>
+      <div class="item"><span class="arrow">→</span><span>Asisten con funciones <strong>consultivas</strong> al PE, Consejo y Comisión</span></div>
+    </div>
+    <div>
+      <div class="sub-head">Composición</div>
+      <div class="item"><span class="arrow">→</span><span>Máx. <span class="pill pill-b">350 miembros</span> cada uno · Actualmente: <span class="pill pill-b">329 miembros</span> · España propone <span class="pill pill-b">21</span></span></div>
+    </div>
+    <div>
+      <div class="sub-head">Mandato y Presidencia</div>
+      <div class="item"><span class="arrow">→</span><span>Miembros: <span class="pill pill-b">5 años</span> · Renovable<br>Presidente y Mesa: <span class="pill pill-b">2 años y medio</span> · Renovable</span></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:12px;margin-bottom:0;">
+    <div class="nlabel">Independencia</div>
+    Los miembros <strong>no estarán vinculados por mandato imperativo</strong> y ejercerán sus funciones con <strong>plena independencia</strong> en interés general de la Unión.
+  </div>
+</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>CESE — Comité Económico y Social Europeo</div>
+    <div class="item"><span class="arrow">→</span><span>Compuesto por representantes de:</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Organizaciones empresariales</strong> (empresarios)</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Organizaciones sindicales</strong> (trabajadores)</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Otros sectores representativos</strong> de la sociedad civil (consumidores, agricultores, profesiones liberales…)</span></div>
+    <div class="info" style="margin-top:10px;margin-bottom:0;">
+      <div class="ilabel">Regla mnemotécnica</div>
+      CESE = <strong>Sociedad Civil</strong> organizada (intereses económicos y sociales)
+    </div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>CDR — Comité Europeo de las Regiones</div>
+    <div class="item"><span class="arrow">→</span><span>Compuesto por representantes políticos de:</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Entes regionales</strong> (comunidades autónomas, länder, regiones…)</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Entes locales</strong> (municipios, ayuntamientos…)</span></div>
+    <div class="info" style="margin-top:10px;margin-bottom:0;">
+      <div class="ilabel">Regla mnemotécnica</div>
+      CDR = <strong>Regiones y Municipios</strong> (administración territorial subnacional)
+    </div>
+  </div>
+</div>
+
+<!-- 2. PRESUPUESTO -->
+<div class="section-label">02 · Los presupuestos de la UE — Elaboración, aprobación y control</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Procedimiento de elaboración y aprobación</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="fdate">Antes del 1 de julio</div>
+        Cada institución (excepto el <strong>BCE</strong>, que tiene presupuesto propio) elabora sus previsiones de gasto y las remite a la <strong>Comisión</strong>
+      </div>
+      <div class="flow-step">
+        <div class="fdate">Antes del 1 de septiembre</div>
+        La <strong>Comisión</strong> presenta el proyecto de presupuesto al <strong>PE y al Consejo</strong>
+      </div>
+      <div class="flow-step">
+        <div class="fdate">Antes del 1 de octubre</div>
+        El <strong>Consejo</strong> adopta su posición sobre el proyecto y la transmite al <strong>PE</strong>
+      </div>
+      <div class="flow-step">
+        <div class="fdate">42 días — PE delibera</div>
+        El PE puede: <strong>(a)</strong> aprobar la posición del Consejo → presupuesto adoptado, o <strong>(b)</strong> aprobar enmiendas por mayoría de sus miembros
+      </div>
+      <div class="flow-step">
+        <div class="fdate">Si hay enmiendas — Comité de Conciliación</div>
+        Convocado por el Presidente del PE de acuerdo con el Presidente del Consejo · Compuesto por <strong>igual número</strong> de miembros del Consejo y del PE · Plazo: <span class="pill pill-y">21 días</span> para alcanzar acuerdo por <strong>mayoría cualificada</strong>
+      </div>
+      <div class="flow-step">
+        <div class="fdate">Si no hay acuerdo</div>
+        La <strong>Comisión</strong> presentará un <strong>nuevo proyecto de presupuesto</strong>
+      </div>
+    </div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Ejecución y control</div>
+    <div class="sub-head" style="color:var(--accent4);">Ejecución</div>
+    <div class="item"><span class="arrow">→</span><span>La ejecución del presupuesto corresponde a la <strong>Comisión</strong></span></div>
+    <div class="sub-head" style="color:var(--accent2);">Control de la gestión</div>
+    <div class="item"><span class="arrow">→</span><span>Cada año, la Comisión presenta las <strong>cuentas del ejercicio cerrado</strong> al PE y al Consejo</span></div>
+    <div class="item"><span class="arrow">→</span><span>La <strong>aprobación de la gestión</strong> de la Comisión corresponde al <strong>PE</strong>, por recomendación del <strong>Consejo</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>El <strong>Tribunal de Cuentas</strong> asiste al PE y al Consejo en su función de control de la ejecución</span></div>
+    <div class="alert" style="margin-top:10px;margin-bottom:0;">
+      <div class="alabel">⚠ BCE — excepción presupuestaria</div>
+      El <strong>BCE</strong> es la única institución que <strong>no remite</strong> sus previsiones de gasto a la Comisión para el presupuesto general. Dispone de <strong>presupuesto propio</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- 3. FUENTES DEL DERECHO -->
+<div class="section-label">03 · El Derecho de la Unión Europea y sus fuentes</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Acervo comunitario = Derecho originario + Derecho derivado</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent);">Derecho Originario (primario)</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Prevalece</strong> sobre cualquier otra fuente de Derecho</span></div>
+      <div class="item"><span class="arrow">→</span><span>Tratados constitutivos y fundacionales</span></div>
+      <div class="item"><span class="arrow">→</span><span>Tratados modificativos (Maastricht, Ámsterdam, Niza, Lisboa…)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Tratados de adhesión de los distintos países</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">Derecho Derivado (secundario) — Art. 288 TFUE</div>
+      <div class="item"><span class="arrow">→</span><span>Creado <strong>a partir del Derecho originario</strong> por las instituciones</span></div>
+      <table style="margin-top:6px;">
+        <thead><tr><th>Acto</th><th>Vinculante</th><th>Aplicable directamente</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Reglamento</strong></td><td><span class="pill pill-g">Sí</span></td><td><span class="pill pill-g">Sí</span></td></tr>
+          <tr><td><strong>Directiva</strong></td><td><span class="pill pill-y">Solo en el resultado</span></td><td><span class="pill pill-r">No — requiere transposición</span></td></tr>
+          <tr><td><strong>Decisión</strong></td><td><span class="pill pill-g">Sí</span></td><td><span class="pill pill-g">Sí</span></td></tr>
+          <tr><td><strong>Recomendación</strong></td><td><span class="pill pill-r">No</span></td><td><span class="pill pill-r">No</span></td></tr>
+          <tr><td><strong>Dictamen</strong></td><td><span class="pill pill-r">No</span></td><td><span class="pill pill-r">No</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="note" style="margin-top:12px;margin-bottom:0;">
+    <div class="nlabel">Publicación — regla general</div>
+    Todas las normas deben publicarse en el <strong>DOUE</strong> (Diario Oficial de la Unión Europea) en las <strong>24 lenguas oficiales</strong> de la UE.
+  </div>
+</div>
+
+<!-- 4. COMPETENCIAS -->
+<div class="section-label">04 · Las competencias de la UE — Arts. 2-6 TFUE</div>
+<div class="grid-3">
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Competencias exclusivas — Art. 3 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span>Solo la <strong>Unión</strong> puede legislar y adoptar actos vinculantes · Los EEMM solo pueden actuar <strong>si la Unión los faculta</strong> o para <strong>aplicar actos de la Unión</strong></span></div>
+    <div class="sub-head">Ámbitos</div>
+    <div class="comp-items">
+      <div class="comp-item" style="background:rgba(255,95,95,.1);border:1px solid rgba(255,95,95,.25);color:var(--accent3);">Unión aduanera</div>
+      <div class="comp-item" style="background:rgba(255,95,95,.1);border:1px solid rgba(255,95,95,.25);color:var(--accent3);">Normas de competencia del mercado interior</div>
+      <div class="comp-item" style="background:rgba(255,95,95,.1);border:1px solid rgba(255,95,95,.25);color:var(--accent3);">Política monetaria (EEMM con euro)</div>
+      <div class="comp-item" style="background:rgba(255,95,95,.1);border:1px solid rgba(255,95,95,.25);color:var(--accent3);">Conservación recursos biológicos marinos (PAP)</div>
+      <div class="comp-item" style="background:rgba(255,95,95,.1);border:1px solid rgba(255,95,95,.25);color:var(--accent3);">Política comercial común</div>
+    </div>
+    <div class="item" style="margin-top:8px;"><span class="arrow">→</span><span>También para <strong>celebración de acuerdos internacionales</strong> en condiciones específicas</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Competencias compartidas — Art. 4 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span>Tanto la <strong>Unión como los EEMM</strong> pueden legislar · Los EEMM ejercen la suya en la medida en que la Unión <strong>no haya ejercido</strong> la suya o haya <strong>decidido dejar de ejercerla</strong></span></div>
+    <div class="sub-head">Ámbitos principales</div>
+    <div class="comp-items">
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Mercado interior</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Política social</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Cohesión económica, social y territorial</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Agricultura y pesca (excl. conservación recursos marinos)</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Medio ambiente</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Protección de los consumidores</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Transportes</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Energía</div>
+      <div class="comp-item" style="background:rgba(61,158,255,.08);border:1px solid rgba(61,158,255,.2);color:var(--accent2);">Espacio de libertad, seguridad y justicia</div>
+    </div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Apoyar, coordinar o complementar — Art. 6 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span>La Unión apoya, coordina o complementa la acción de los EEMM <strong>sin sustituir</strong> su competencia</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">Sin armonización</span> de las disposiciones legales y reglamentarias de los EEMM</span></div>
+    <div class="sub-head">Ámbitos</div>
+    <div class="comp-items">
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Protección y mejora salud humana</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Industria</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Cultura</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Turismo</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Educación, FP, juventud y deporte</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Protección civil</div>
+      <div class="comp-item" style="background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--accent4);">Cooperación administrativa</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4.4 PRINCIPIOS -->
+<div class="section-label">04b · Principios de delimitación y ejercicio de competencias</div>
+<div class="grid-3">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Principio de atribución</div>
+    <div class="item"><span class="arrow">→</span><span>Rige la <strong>delimitación</strong> de las competencias</span></div>
+    <div class="item"><span class="arrow">→</span><span>La Unión actúa <strong>solo dentro de los límites</strong> de las competencias que le atribuyen los EEMM en los Tratados</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">Regla residual:</span> toda competencia <strong>no atribuida</strong> a la Unión corresponde a los EEMM</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Principio de subsidiariedad</div>
+    <div class="item"><span class="arrow">→</span><span>Rige el <strong>ejercicio</strong> de las competencias <strong>no exclusivas</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>La Unión interviene <strong>solo si</strong> los objetivos <strong>no pueden alcanzarse suficientemente</strong> por los EEMM (ni a nivel central, ni regional, ni local)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Y pueden alcanzarse mejor a <strong>escala de la Unión</strong> por la dimensión de la acción</span></div>
+    <div class="note" style="margin-top:8px;margin-bottom:0;">
+      <div class="nlabel">No aplica a competencias exclusivas</div>
+      Solo opera en ámbitos de competencia <strong>compartida o complementaria</strong>
+    </div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Principio de proporcionalidad</div>
+    <div class="item"><span class="arrow">→</span><span>Rige el <strong>ejercicio</strong> de las competencias</span></div>
+    <div class="item"><span class="arrow">→</span><span>El contenido y la forma de la acción de la Unión <strong>no excederá de lo necesario</strong> para alcanzar los objetivos de los Tratados</span></div>
+  </div>
+</div>
+
+<!-- CRIBA FINAL -->
+<div class="section-label">🎯 · Kit de criba directa — Anexo Tema 11</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>CESE y CDR — son instituciones</td><td><span class="pill pill-r">No</span> — son <strong>órganos consultivos</strong></td></tr>
+      <tr><td>Sede de ambos comités</td><td><strong>Bruselas</strong></td></tr>
+      <tr><td>Nº máximo de miembros de cada comité</td><td><strong>350</strong> · Actualmente: <strong>329</strong> · España: <strong>21</strong></td></tr>
+      <tr><td>Mandato de los miembros</td><td><strong>5 años</strong> · Renovable</td></tr>
+      <tr><td>Presidente y Mesa — mandato</td><td><strong>2 años y medio</strong> · Renovable</td></tr>
+      <tr><td>CESE — representa</td><td>Empresarios + Trabajadores + Sociedad civil (sectores representativos)</td></tr>
+      <tr><td>CDR — representa</td><td>Entes <strong>regionales</strong> y entes <strong>locales</strong></td></tr>
+      <tr><td>A quiénes asesoran</td><td>PE + Consejo + Comisión</td></tr>
+      <tr><td>Presupuesto — quién lo aprueba</td><td><strong>PE + Consejo</strong> conjuntamente (a propuesta de la Comisión · procedimiento legislativo especial)</td></tr>
+      <tr><td>Presupuesto — quién presenta proyecto</td><td><strong>Comisión</strong> — antes del <strong>1 de septiembre</strong></td></tr>
+      <tr><td>Previsiones a la Comisión — antes de</td><td><strong>1 de julio</strong> (todas las instituciones, excepto el BCE)</td></tr>
+      <tr><td>Consejo — transmite posición al PE antes de</td><td><strong>1 de octubre</strong></td></tr>
+      <tr><td>Plazo del PE para deliberar</td><td><strong>42 días</strong></td></tr>
+      <tr><td>Comité de Conciliación — plazo</td><td><strong>21 días</strong> · mayoría cualificada</td></tr>
+      <tr><td>Comité de Conciliación — composición</td><td><strong>Igual número</strong> de miembros del Consejo y del PE</td></tr>
+      <tr><td>Si no hay acuerdo presupuestario</td><td>La <strong>Comisión</strong> presenta un <strong>nuevo proyecto</strong></td></tr>
+      <tr><td>Ejecución del presupuesto</td><td><strong>Comisión</strong></td></tr>
+      <tr><td>Aprobación de la gestión</td><td><strong>PE</strong> por recomendación del <strong>Consejo</strong></td></tr>
+      <tr><td>BCE — presupuesto</td><td><strong>Propio</strong> — no remite previsiones a la Comisión</td></tr>
+      <tr><td>Lenguas oficiales de la UE</td><td><strong>24</strong></td></tr>
+      <tr><td>Derecho Originario prevalece sobre</td><td>Cualquier otra fuente de Derecho (incluyendo el derivado)</td></tr>
+      <tr><td>Actos vinculantes del Derecho derivado</td><td>Reglamento · Directiva · Decisión</td></tr>
+      <tr><td>Actos no vinculantes</td><td>Recomendación · Dictamen</td></tr>
+      <tr><td>Reglamento — alcance</td><td><strong>General</strong> · obligatorio íntegramente · directamente aplicable</td></tr>
+      <tr><td>Directiva — obliga al EEMM en</td><td>El <strong>resultado</strong> · deja libre la <strong>forma y los medios</strong></td></tr>
+      <tr><td>Decisión vs Reglamento</td><td>El Reglamento siempre tiene alcance general · la Decisión puede no tenerlo</td></tr>
+      <tr><td>Principio que rige la delimitación de competencias</td><td>Principio de <strong>atribución</strong></td></tr>
+      <tr><td>Principio que rige el ejercicio de competencias</td><td>Subsidiariedad + <strong>proporcionalidad</strong></td></tr>
+      <tr><td>Subsidiariedad — solo aplica cuando</td><td>No sean competencias <strong>exclusivas</strong></td></tr>
+      <tr><td>Competencias exclusivas — 5 ámbitos</td><td>Unión aduanera · Competencia mercado interior · Política monetaria (euro) · Conservación recursos marinos · Política comercial común</td></tr>
+      <tr><td>Competencias de apoyo — prohibición</td><td><span class="pill pill-r">No conllevarán armonización</span> de disposiciones nacionales</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

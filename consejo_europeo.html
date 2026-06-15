@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consejo Europeo — Detalle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg:#0d0f14;--surface:#141720;--border:#252a38;
+    --accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;
+    --text:#d4d8e8;--muted:#6b7292;
+    --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);text-decoration:none;border:1px solid rgba(61,158,255,0.3);padding:4px 10px;background:rgba(61,158,255,0.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent2);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Composición visual */
+  .comp-badge{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;margin-bottom:6px;border:1px solid var(--border);background:rgba(255,255,255,.02);}
+  .comp-icon{font-family:var(--mono);font-size:18px;line-height:1;min-width:24px;text-align:center;}
+  .comp-body{font-size:12px;line-height:1.5;}
+  .comp-body strong{color:#fff;}
+  .comp-body small{display:block;color:var(--muted);font-size:11px;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 1 · Art. 15 TUE · Lisboa 2009</div>
+  <h1>El Consejo Europeo</h1>
+  <div class="sub">Órgano de impulso político · Sede: Bruselas · Elevado a institución por el Tratado de Lisboa (2009)</div>
+</div>
+
+<!-- 1. NATURALEZA -->
+<div class="section-label">01 · Naturaleza jurídica y evolución histórica</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Evolución — tres hitos clave</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent);">1974 — Origen</div>
+      <div class="item"><span class="arrow">→</span><span>Creado en la <strong>Conferencia de París</strong> por decisión de los Jefes de Estado o de Gobierno. Sin base jurídica en los Tratados.</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">1992 — Maastricht</div>
+      <div class="item"><span class="arrow">→</span><span>El Tratado de Maastricht lo <strong>formalizó</strong> como órgano de impulso, pero aún <span class="pill pill-r">sin rango institucional</span>.</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">2009 — Lisboa</div>
+      <div class="item"><span class="arrow">→</span><span>El Tratado de Lisboa le otorga la <strong>condición de institución de pleno derecho</strong> (junto al BCE, también elevado en Lisboa).</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. COMPOSICIÓN -->
+<div class="section-label">02 · Composición — Art. 15.2 TUE</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Miembros, participantes e invitados</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">Con voz y voto</div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--accent4);">★</span>
+        <div class="comp-body"><strong>Jefes de Estado o de Gobierno</strong> de los 27 EEMM<small>Son los únicos que votan</small></div>
+      </div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--accent4);">★</span>
+        <div class="comp-body"><strong>Presidente del Consejo Europeo</strong><small>Elegido por el propio órgano</small></div>
+      </div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--accent4);">★</span>
+        <div class="comp-body"><strong>Presidente de la Comisión Europea</strong><small>Miembro de pleno derecho</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">Participación activa (sin voto)</div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--accent2);">◆</span>
+        <div class="comp-body"><strong>Alto Representante</strong> para AAEE y Política de Seguridad<small>Participa en los trabajos pero no vota</small></div>
+      </div>
+      <div class="alert" style="margin-top:8px;margin-bottom:0;">
+        <div class="alabel">⚠ Test clásico</div>
+        Ni el <strong>Presidente del Consejo Europeo</strong> ni el <strong>Presidente de la Comisión</strong> participan en las votaciones. Solo votan los Jefes de Estado/Gobierno.
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--muted);">Invitados y soporte</div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--muted);">○</span>
+        <div class="comp-body"><strong>Presidente del PE</strong><small>Puede ser invitado a comparecer; no es miembro</small></div>
+      </div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--muted);">○</span>
+        <div class="comp-body"><strong>Ministros / Comisarios</strong><small>Cuando el orden del día lo exija, los miembros pueden solicitar la asistencia de un ministro o comisario</small></div>
+      </div>
+      <div class="comp-badge">
+        <span class="comp-icon" style="color:var(--muted);">○</span>
+        <div class="comp-body"><strong>Secretaría General del Consejo</strong><small>Soporte administrativo</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. PRESIDENTE -->
+<div class="section-label">03 · El Presidente del Consejo Europeo — Art. 15.5-15.6 TUE</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Elección, mandato e incompatibilidades</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Elección:</strong> Por el propio Consejo Europeo por <span class="pill pill-b">mayoría cualificada</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Duración del mandato:</strong> <span class="pill pill-b">2 años y medio</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Renovable:</strong> <span class="pill pill-b">una sola vez</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Incompatibilidad absoluta:</strong> <span class="pill pill-r">No puede ejercer mandato nacional alguno</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Cese anticipado:</strong> En caso de impedimento o falta grave, el Consejo Europeo puede poner fin a su mandato por el <strong>mismo procedimiento</strong> (mayoría cualificada)</span></div>
+  </div>
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Funciones del Presidente</div>
+    <div class="item"><span class="arrow">→</span><span>Presidir e <strong>impulsar</strong> los trabajos del Consejo Europeo</span></div>
+    <div class="item"><span class="arrow">→</span><span>Velar por la <strong>preparación y continuidad</strong> de los trabajos, en cooperación con el Presidente de la Comisión y basándose en el CAG</span></div>
+    <div class="item"><span class="arrow">→</span><span>Esforzarse por facilitar la <strong>cohesión y el consenso</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Presentar un <strong>informe al PE</strong> al término de cada reunión</span></div>
+    <div class="item"><span class="arrow">→</span><span>Asumir la <strong>representación exterior</strong> de la UE en materia de PESC — sin perjuicio de las atribuciones del Alto Representante</span></div>
+  </div>
+</div>
+
+<!-- 4. REUNIONES -->
+<div class="section-label">04 · Funciones generales y régimen de reuniones</div>
+<div class="grid-2">
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Funciones institucionales</div>
+    <div class="item"><span class="arrow">→</span><span>Dará a la Unión los <strong>impulsos necesarios</strong> para su desarrollo</span></div>
+    <div class="item"><span class="arrow">→</span><span>Definirá sus <strong>orientaciones y prioridades políticas generales</strong></span></div>
+    <div class="alert" style="margin-top:10px;margin-bottom:0;">
+      <div class="alabel">⚠ Clave de examen — literal del TUE</div>
+      <strong>«No ejercerá función legislativa alguna»</strong><br>
+      Es la trampa más frecuente. El Consejo Europeo define líneas políticas pero no aprueba leyes.
+    </div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Régimen de reuniones</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Ordinarias:</strong> <span class="pill pill-b">2 veces por semestre</span> convocadas por su Presidente</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Extraordinarias:</strong> cuando la situación lo exija, convocadas por su Presidente</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Asistencia de ministros/comisarios:</strong> posible cuando el orden del día lo exija, por decisión de los propios miembros</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Sede</div>
+      Bruselas (desde 2004, todas las reuniones se celebran en el Edificio Europa de Bruselas)
+    </div>
+  </div>
+</div>
+
+<!-- 5. VOTACIÓN -->
+<div class="section-label">05 · Adopción de decisiones y reglas de votación</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Sistema de votación — tres niveles</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">Regla general — Consenso</div>
+      <div class="item"><span class="arrow">→</span><span>El Consejo Europeo se pronuncia por <span class="pill pill-g">consenso</span> excepto cuando los Tratados dispongan otra cosa</span></div>
+      <div class="note" style="margin-top:8px;margin-bottom:0;">
+        <div class="nlabel">Abstención y unanimidad</div>
+        La abstención de los miembros presentes o representados <strong>no obstará</strong> la adopción de acuerdos que requieran unanimidad.
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">Votación formal — Reglas estrictas</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Quórum de presencia:</strong> <span class="pill pill-b">2/3</span> de sus miembros</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Delegación de voto:</strong> cada miembro puede actuar en representación de <span class="pill pill-b">uno solo</span> de los demás</span></div>
+      <div class="alert" style="margin-top:8px;margin-bottom:0;">
+        <div class="alabel">⚠ Solo votan</div>
+        Los <strong>Jefes de Estado o de Gobierno</strong>. El Presidente del Consejo Europeo y el Presidente de la Comisión <strong>quedan excluidos</strong> del voto.
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent);">Excepción — Mayoría simple</div>
+      <div class="item"><span class="arrow">→</span><span>Únicamente para:</span></div>
+      <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Cuestiones de procedimiento</strong></span></div>
+      <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><strong>Aprobación del reglamento interno</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — Consejo Europeo</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Elevado a institución en</td><td><strong>Tratado de Lisboa, 2009</strong> (junto al BCE)</td></tr>
+      <tr><td>Creación originaria</td><td><strong>Conferencia de París, 1974</strong></td></tr>
+      <tr><td>Formalización previa a Lisboa</td><td><strong>Tratado de Maastricht, 1992</strong> (órgano no institucional)</td></tr>
+      <tr><td>Función legislativa</td><td><span class="pill pill-r">NINGUNA</span> — «No ejercerá función legislativa alguna»</td></tr>
+      <tr><td>Función principal</td><td>Impulso político y definición de orientaciones y prioridades generales</td></tr>
+      <tr><td>Miembros con voz y voto</td><td>Jefes de Estado/Gobierno + Presidente del CE + Presidente de la Comisión</td></tr>
+      <tr><td>Participan sin votar</td><td><strong>Alto Representante</strong> · Presidente del CE · Presidente de la Comisión</td></tr>
+      <tr><td>Solo votan</td><td>Los <strong>Jefes de Estado o de Gobierno</strong> de los EEMM</td></tr>
+      <tr><td>Presidente — forma de elección</td><td>Por el propio Consejo Europeo por <strong>mayoría cualificada</strong></td></tr>
+      <tr><td>Presidente — duración del mandato</td><td><strong>2 años y medio</strong></td></tr>
+      <tr><td>Presidente — renovación</td><td><strong>Una sola vez</strong></td></tr>
+      <tr><td>Presidente — mandato nacional</td><td><span class="pill pill-r">Incompatible</span> — no puede ejercer mandato nacional alguno</td></tr>
+      <tr><td>Presidente — cese anticipado</td><td>Por el Consejo Europeo por <strong>mayoría cualificada</strong> (mismo procedimiento)</td></tr>
+      <tr><td>Representación exterior PESC</td><td>El <strong>Presidente del Consejo Europeo</strong> (sin perjuicio del Alto Representante)</td></tr>
+      <tr><td>Informe al PE</td><td>Tras <strong>cada reunión</strong></td></tr>
+      <tr><td>Frecuencia reuniones ordinarias</td><td><strong>2 veces por semestre</strong></td></tr>
+      <tr><td>Quien convoca las reuniones</td><td>El <strong>Presidente</strong> del Consejo Europeo</td></tr>
+      <tr><td>Regla general de votación</td><td><strong>Consenso</strong></td></tr>
+      <tr><td>Abstención en unanimidad</td><td><strong>No impide</strong> la adopción del acuerdo</td></tr>
+      <tr><td>Quórum para votación formal</td><td><strong>2/3</strong> de sus miembros</td></tr>
+      <tr><td>Delegación de voto</td><td>Máximo <strong>uno</strong> por miembro</td></tr>
+      <tr><td>Mayoría simple: para qué</td><td>Cuestiones de procedimiento y reglamento interno</td></tr>
+      <tr><td>Soporte administrativo</td><td>Secretaría General <strong>del Consejo</strong> (comparte secretaría con el Consejo de la UE)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

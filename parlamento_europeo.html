@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Parlamento Europeo — Detalle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root {
+    --bg:#0d0f14;--surface:#141720;--border:#252a38;
+    --accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;
+    --text:#d4d8e8;--muted:#6b7292;
+    --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);text-decoration:none;border:1px solid rgba(61,158,255,.3);padding:4px 10px;background:rgba(61,158,255,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent2);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Sedes visual */
+  .sede-card{border:1px solid var(--border);padding:10px 12px;margin-bottom:8px;}
+  .sede-card:last-child{margin-bottom:0;}
+  .sede-city{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+  .sede-detail{font-size:12px;color:var(--text);}
+
+  /* Escaños visual */
+  .escano-bar{display:flex;gap:2px;flex-wrap:wrap;margin:8px 0;}
+  .escano-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);}
+
+  /* Mesa composición */
+  .mesa-row{display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+  .mesa-row:last-child{border-bottom:none;}
+  .mesa-num{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--accent2);min-width:32px;}
+  .mesa-label strong{color:#fff;}
+  .mesa-label small{display:block;color:var(--muted);font-size:11px;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 4 · Art. 14 TUE · Arts. 223-234 TFUE</div>
+  <h1>El Parlamento Europeo</h1>
+  <div class="sub">Representa a los ciudadanos de la UE · Co-legislador · Funciones desde 1958 · Elección directa desde 1979</div>
+</div>
+
+<!-- 1. CREACIÓN Y SEDES -->
+<div class="section-label">01 · Creación, representación y distribución geográfica</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Creación y representación</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Origen:</strong> Sus raíces se remontan a los Tratados Constitutivos de las Comunidades Europeas</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Inicio de funciones:</strong> <span class="pill pill-b">1958</span> — sobre las tres Comunidades Europeas de forma conjunta</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Representa:</strong> de forma directa los <strong>intereses de los ciudadanos de la Unión Europea</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Elección histórica:</strong> hasta 1978, los miembros eran designados por los Parlamentos nacionales · Desde <span class="pill pill-b">1979</span>: sufragio universal directo, libre y secreto</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Periodicidad electoral:</strong> cada <span class="pill pill-b">5 años</span> · Últimas: junio de 2024</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Distribución geográfica de las sedes</div>
+    <div class="sede-card">
+      <div class="sede-city">🏛 Estrasburgo (Francia) — Sede Oficial</div>
+      <div class="sede-detail">Los <strong>12 períodos parciales de sesiones plenarias mensuales</strong>, incluida la sesión presupuestaria. Sede oficial del Pleno.</div>
+    </div>
+    <div class="sede-card">
+      <div class="sede-city">🏢 Bruselas (Bélgica)</div>
+      <div class="sede-detail">Reuniones de las <strong>comisiones parlamentarias</strong> y períodos parciales de sesiones adicionales.</div>
+    </div>
+    <div class="sede-card">
+      <div class="sede-city">📁 Luxemburgo</div>
+      <div class="sede-detail"><strong>Secretaría General</strong> del Parlamento Europeo y sus servicios administrativos.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. COMPOSICIÓN -->
+<div class="section-label">02 · Composición y reglas de escaños — Art. 14.2 TUE</div>
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Reglas de composición — proporcionalidad decreciente</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent2);">Límites del Tratado (Art. 14.2 TUE)</div>
+      <div class="item"><span class="arrow">→</span><span>Número máximo absoluto: <span class="pill pill-b">750 + Presidente</span> = 751</span></div>
+      <div class="item"><span class="arrow">→</span><span>Mínimo por EEMM: <span class="pill pill-b">6 escaños</span></span></div>
+      <div class="item"><span class="arrow">→</span><span>Máximo por EEMM: <span class="pill pill-b">96 escaños</span></span></div>
+      <div class="item"><span class="arrow">→</span><span>Criterio: <strong>proporcionalidad decreciente</strong></span></div>
+      <div class="info" style="margin-top:8px;margin-bottom:0;">
+        <div class="ilabel">Quién fija la composición</div>
+        El <strong>Consejo Europeo</strong> por unanimidad, a iniciativa del PE y con su aprobación.
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent4);">Legislatura actual 2024-2029</div>
+      <div class="item"><span class="arrow">→</span><span>Marco: <strong>Decisión 2023/2021</strong> del Consejo Europeo</span></div>
+      <div class="item"><span class="arrow">→</span><span>Total actual: <span class="pill pill-g">720 diputados</span> (incluido el Presidente)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Legislatura anterior 2019-2024: 705 diputados</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>España:</strong> <span class="pill pill-g">61 diputados</span> (2 más que antes)</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent);">Ejemplos de distribución</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Mayor representación:</strong> Alemania — <span class="pill pill-y">96 escaños</span></span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Menor representación:</strong> Chipre, Luxemburgo y Malta — <span class="pill pill-y">6 escaños</span> cada uno</span></div>
+      <div class="note" style="margin-top:8px;margin-bottom:0;">
+        <div class="nlabel">Proporcionalidad decreciente</div>
+        Los países más poblados tienen más escaños pero en proporción menor a su población real. Un diputado alemán representa a más ciudadanos que uno luxemburgués.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. ÓRGANOS DE GOBIERNO -->
+<div class="section-label">03 · Órganos de gobierno — Presidente y Mesa</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>El Presidente del PE</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Elección:</strong> por el Pleno del PE, de entre sus propios diputados</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mayoría exigida:</strong> <span class="pill pill-b">mayoría absoluta de los votos emitidos</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mandato:</strong> <span class="pill pill-b">2 años y medio</span> · Renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span>Preside las sesiones plenarias, representa al PE en el exterior y firma los actos legislativos adoptados conjuntamente con el Consejo</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>La Mesa del PE</div>
+    <div class="mesa-row">
+      <span class="mesa-num">1</span>
+      <div class="mesa-label"><strong>Presidente</strong><small>Preside la Mesa y el Pleno</small></div>
+    </div>
+    <div class="mesa-row">
+      <span class="mesa-num">14</span>
+      <div class="mesa-label"><strong>Vicepresidentes</strong><small>Elegidos por el Pleno</small></div>
+    </div>
+    <div class="mesa-row">
+      <span class="mesa-num">5</span>
+      <div class="mesa-label"><strong>Cuestores</strong><small>Miembros a título <span class="pill pill-r">consultivo</span> — sin derecho a voto · Responsables de los asuntos administrativos y financieros que afectan directamente a los Diputados</small></div>
+    </div>
+    <div class="item" style="margin-top:8px;"><span class="arrow">→</span><span><strong>Elección y mandato:</strong> elegidos por el Pleno · <span class="pill pill-b">2 años y medio</span> · Renovables</span></div>
+  </div>
+</div>
+
+<!-- 4. ESTATUTO DIPUTADOS -->
+<div class="section-label">04 · Estatuto de los diputados</div>
+<div class="grid-3">
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Incompatibilidades</div>
+    <div class="item"><span class="arrow">→</span><span>La condición de diputado al PE es incompatible con:</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>El ejercicio de otras funciones a nivel de la UE</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Ser miembro del <strong>Gobierno</strong> de un EEMM</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Ser miembro de un <strong>Parlamento nacional</strong></span></div>
+  </div>
+  <div class="block purple">
+    <div class="block-title"><span class="dot"></span>Grupos políticos</div>
+    <div class="item"><span class="arrow">→</span><span>Se agrupan por <strong>afinidades políticas</strong>, no por delegaciones nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span>Un diputado solo puede pertenecer a <span class="pill pill-p">un único grupo político</span></span></div>
+    <div class="sub-head">Requisitos para constituir un grupo</div>
+    <div class="item"><span class="arrow">→</span><span>Mínimo <span class="pill pill-p">23 diputados</span></span></div>
+    <div class="item"><span class="arrow">→</span><span>Procedentes al menos de <span class="pill pill-p">1/4 de los EEMM</span></span></div>
+    <div class="item"><span class="arrow">→</span><span>Los que no pertenecen a ningún grupo: <strong>«Diputados no inscritos»</strong></span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Derecho al voto</div>
+    <div class="item"><span class="arrow">→</span><span>El voto es <strong>personal</strong> · Está <span class="pill pill-r">prohibido</span> el voto por delegación</span></div>
+    <div class="item"><span class="arrow">→</span><span>Los diputados <strong>no pueden recibir mandato imperativo alguno</strong> — votan libremente</span></div>
+  </div>
+</div>
+
+<!-- 5. FUNCIONES -->
+<div class="section-label">05 · Funciones del Parlamento Europeo — Art. 14.1 TUE</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Funciones compartidas con el Consejo</div>
+    <div class="sub-head" style="color:var(--accent2);">Función legislativa</div>
+    <div class="item"><span class="arrow">→</span><span>Co-titular de los poderes legislativos junto al Consejo · Se requiere la <strong>aprobación de ambas instituciones</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Ambos actúan a instancia de la <strong>Comisión</strong> (que ostenta la iniciativa) · Pueden aprobar Reglamentos, Directivas y Decisiones</span></div>
+    <div class="sub-head" style="color:var(--accent2);">Procedimientos legislativos</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-b">Ordinario:</span> adopción conjunta PE + Consejo, a propuesta de la Comisión (regla general)</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-p">Especial:</span> adopción por PE con participación del Consejo (o viceversa) · Carácter <strong>excepcional</strong> — solo cuando un Tratado lo indique expresamente</span></div>
+    <div class="sub-head" style="color:var(--accent2);">Función presupuestaria</div>
+    <div class="item"><span class="arrow">→</span><span>Aprobación del presupuesto anual: <strong>conjuntamente</strong> con el Consejo, partiendo de propuesta de la Comisión</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Aprobación de la gestión:</strong> el PE fiscaliza y aprueba la gestión de la Comisión en la ejecución presupuestaria, previa recomendación del Consejo</span></div>
+  </div>
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Funciones privativas del PE</div>
+    <div class="sub-head" style="color:var(--accent);">Control político</div>
+    <div class="item"><span class="arrow">→</span><span>Moción de censura contra la Comisión (ver sección 06)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Comisiones de investigación: a petición de <span class="pill pill-y">1/4 de sus diputados</span></span></div>
+    <div class="sub-head" style="color:var(--accent);">Función consultiva</div>
+    <div class="item"><span class="arrow">→</span><span>Emite dictámenes en los procedimientos legislativos especiales y en otros ámbitos</span></div>
+    <div class="sub-head" style="color:var(--accent);">Elección del Presidente de la Comisión</div>
+    <div class="item"><span class="arrow">→</span><span>Elige al Presidente de la Comisión por <span class="pill pill-y">mayoría absoluta</span> de sus miembros, sobre la candidatura propuesta por el Consejo Europeo</span></div>
+    <div class="sub-head" style="color:var(--accent);">Derecho de petición — Art. 227 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span>Cualquier <strong>ciudadano de la UE</strong> o persona física/jurídica con domicilio en un EEMM puede dirigir peticiones al PE</span></div>
+    <div class="item"><span class="arrow">→</span><span>Individual o colectivamente · Debe referirse a un asunto de la UE que <strong>afecte directamente</strong> al peticionario</span></div>
+  </div>
+</div>
+
+<!-- 6. MOCIÓN DE CENSURA -->
+<div class="section-label">06 · Moción de censura — Art. 234 TFUE</div>
+<div class="block full red" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Régimen completo de la moción de censura</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Objeto</div>
+      <div class="item"><span class="arrow">→</span><span>Contra la <strong>Comisión en su conjunto</strong> (responsabilidad colegiada)</span></div>
+      <div class="alert" style="margin-top:8px;margin-bottom:0;">
+        <div class="alabel">Prohibido</div>
+        Plantearla contra un <strong>Comisario individual</strong>
+      </div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Iniciativa y plazo</div>
+      <div class="item"><span class="arrow">→</span><span>Mínimo: <span class="pill pill-r">1/10 de los diputados</span> del PE</span></div>
+      <div class="item"><span class="arrow">→</span><span>No puede votarse hasta transcurridos <span class="pill pill-r">3 días</span> desde su presentación (plazo de enfriamiento)</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Mayorías para aprobación</div>
+      <div class="item"><span class="arrow">→</span><span>Doble condición simultánea:</span></div>
+      <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span><span class="pill pill-r">2/3 de los votos emitidos</span></span></div>
+      <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>Que representen la <span class="pill pill-r">mayoría de los diputados</span> del PE</span></div>
+    </div>
+    <div>
+      <div class="sub-head" style="color:var(--accent3);">Efectos de la aprobación</div>
+      <div class="item"><span class="arrow">→</span><span><strong>Dimisión colectiva</strong> de todos los miembros de la Comisión</span></div>
+      <div class="item"><span class="arrow">→</span><span>El <strong>Alto Representante</strong> dimite de sus cargos en la Comisión, pero <span class="pill pill-y">mantiene</span> sus funciones PESC</span></div>
+      <div class="item"><span class="arrow">→</span><span>Los cesados permanecen en funciones hasta ser sustituidos</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. REUNIONES Y VOTACIÓN -->
+<div class="section-label">07 · Régimen de reuniones y adopción de decisiones</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Sesiones — Art. 229 TFUE</div>
+    <div class="sub-head">Sesiones ordinarias</div>
+    <div class="item"><span class="arrow">→</span><span>Un <strong>período de sesiones anual</strong> dividido en <span class="pill pill-b">12 períodos parciales mensuales</span> (plenarios en Estrasburgo, incluyendo la sesión presupuestaria)</span></div>
+    <div class="sub-head">Sesiones extraordinarias</div>
+    <div class="item"><span class="arrow">→</span><span>Puede reunirse en período extraordinario a petición de:</span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>La <strong>mayoría de sus miembros</strong></span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>El <strong>Consejo</strong></span></div>
+    <div class="item" style="margin-left:12px;"><span class="arrow">·</span><span>La <strong>Comisión</strong></span></div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Adopción de decisiones y quórum</div>
+    <div class="sub-head">Regla general de votación</div>
+    <div class="item"><span class="arrow">→</span><span>El PE decide por <span class="pill pill-g">mayoría de los votos emitidos</span>, salvo disposición contraria expresa en los Tratados</span></div>
+    <div class="sub-head">Quórum de constitución</div>
+    <div class="item"><span class="arrow">→</span><span>Habrá quórum cuando se encuentre reunida en el salón de sesiones la <span class="pill pill-g">1/3 de los diputados</span> que componen legalmente el Parlamento</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Mayorías especiales — resumen</div>
+      Mayoría absoluta: elección del Presidente de la Comisión, moción de censura (parte)<br>
+      2/3 + mayoría: aprobación de la moción de censura<br>
+      Mayoría de emitidos: regla general
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — Parlamento Europeo</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Representa</td><td>Los <strong>ciudadanos de la UE</strong> (≠ Consejo = Gobiernos; ≠ Comisión = interés general)</td></tr>
+      <tr><td>Inicio de funciones</td><td><strong>1958</strong></td></tr>
+      <tr><td>Inicio elección directa</td><td><strong>1979</strong> — antes: designación por Parlamentos nacionales</td></tr>
+      <tr><td>Mandato de los diputados</td><td><strong>5 años</strong> · Sufragio universal directo, libre y secreto</td></tr>
+      <tr><td>Últimas elecciones</td><td><strong>Junio de 2024</strong></td></tr>
+      <tr><td>Límite máximo TUE</td><td><strong>750 + Presidente</strong> = 751</td></tr>
+      <tr><td>Mínimo por EEMM</td><td><strong>6 escaños</strong></td></tr>
+      <tr><td>Máximo por EEMM</td><td><strong>96 escaños</strong> (Alemania)</td></tr>
+      <tr><td>Total actual (2024-2029)</td><td><strong>720 diputados</strong> — Decisión 2023/2021 del Consejo Europeo</td></tr>
+      <tr><td>España — escaños actuales</td><td><strong>61</strong> (2 más que en la legislatura anterior)</td></tr>
+      <tr><td>Quién fija la composición</td><td><strong>Consejo Europeo</strong> por unanimidad, a iniciativa del PE y con su aprobación</td></tr>
+      <tr><td>Criterio de reparto</td><td><strong>Proporcionalidad decreciente</strong></td></tr>
+      <tr><td>Sede oficial — plenarios</td><td><strong>Estrasburgo</strong> (12 períodos parciales mensuales, incluida sesión presupuestaria)</td></tr>
+      <tr><td>Comisiones parlamentarias</td><td><strong>Bruselas</strong></td></tr>
+      <tr><td>Secretaría General</td><td><strong>Luxemburgo</strong></td></tr>
+      <tr><td>Presidente del PE — mayoría para elegirlo</td><td><strong>Mayoría absoluta de los votos emitidos</strong></td></tr>
+      <tr><td>Presidente del PE — mandato</td><td><strong>2 años y medio</strong> · Renovable</td></tr>
+      <tr><td>Mesa: composición</td><td>Presidente + <strong>14 Vicepresidentes</strong> + <strong>5 Cuestores</strong></td></tr>
+      <tr><td>Cuestores — derecho a voto en la Mesa</td><td><span class="pill pill-r">No</span> — solo a título consultivo</td></tr>
+      <tr><td>Mandato de la Mesa</td><td><strong>2 años y medio</strong> · Renovable</td></tr>
+      <tr><td>Incompatibilidades del diputado</td><td>Funciones en la UE · Gobierno nacional · Parlamento nacional</td></tr>
+      <tr><td>Grupos políticos — mínimo de diputados</td><td><strong>23 diputados</strong></td></tr>
+      <tr><td>Grupos políticos — mínimo de EEMM</td><td><strong>1/4 de los EEMM</strong></td></tr>
+      <tr><td>Voto por delegación</td><td><span class="pill pill-r">Prohibido</span> — el voto es personal</td></tr>
+      <tr><td>Procedimiento legislativo ordinario</td><td>Adopción conjunta PE + Consejo, a propuesta de la Comisión</td></tr>
+      <tr><td>Procedimiento legislativo especial</td><td>Excepcional · Solo cuando un Tratado lo indique expresamente</td></tr>
+      <tr><td>Moción de censura — iniciativa</td><td>Al menos <strong>1/10 de los diputados</strong></td></tr>
+      <tr><td>Moción de censura — plazo mínimo antes de votar</td><td><strong>3 días</strong> desde su presentación</td></tr>
+      <tr><td>Moción de censura — mayorías</td><td><strong>2/3 votos emitidos</strong> + <strong>mayoría de los diputados</strong> del PE (doble condición)</td></tr>
+      <tr><td>Moción de censura — Alto Representante</td><td>Dimite como Vicepresidente de la Comisión, pero <strong>mantiene funciones PESC</strong></td></tr>
+      <tr><td>Derecho de petición — titulares</td><td>Ciudadanos UE + personas físicas/jurídicas con domicilio en EEMM</td></tr>
+      <tr><td>Sesiones extraordinarias — a petición de</td><td>Mayoría de sus miembros · Consejo · Comisión</td></tr>
+      <tr><td>Votación regla general</td><td><strong>Mayoría de los votos emitidos</strong></td></tr>
+      <tr><td>Quórum de constitución</td><td><strong>1/3 de los diputados</strong> en el salón de sesiones</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

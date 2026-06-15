@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otras Fuentes del Derecho de la UE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root{--bg:#0d0f14;--surface:#141720;--border:#252a38;--accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;--text:#d4d8e8;--muted:#6b7292;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent5);text-decoration:none;border:1px solid rgba(192,132,252,.3);padding:4px 10px;background:rgba(192,132,252,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent5);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent5);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);} .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+  .nota-zone{border:1px solid rgba(192,132,252,.35);background:rgba(192,132,252,.04);padding:14px;margin-bottom:14px;}
+  .nota-header{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent5);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(192,132,252,.2);display:flex;align-items:center;gap:8px;}
+  .nota-header::before{content:'★';font-size:12px;}
+  .nota-block{background:rgba(192,132,252,.06);border:1px solid rgba(192,132,252,.2);padding:12px 14px;margin-bottom:10px;}
+  .nota-block:last-child{margin-bottom:0;}
+  .nota-block .nb-title{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+
+  /* Casos jurisprudenciales */
+  .caso{border-left:3px solid var(--accent4);padding:8px 12px;margin-bottom:8px;background:rgba(74,222,128,.04);}
+  .caso:last-child{margin-bottom:0;}
+  .caso-title{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent4);margin-bottom:4px;}
+  .caso-body{font-size:12px;line-height:1.5;}
+
+  /* Principios lista */
+  .princ{border:1px solid var(--border);padding:9px 12px;margin-bottom:6px;display:flex;gap:12px;align-items:flex-start;}
+  .princ:last-child{margin-bottom:0;}
+  .princ-name{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);min-width:160px;flex-shrink:0;}
+  .princ-desc{font-size:12px;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="fuentes_derecho.html">← Volver a Fuentes del Derecho</a></div>
+
+<div class="header">
+  <div class="tag">Fuentes complementarias · Más allá del art. 288 TFUE</div>
+  <h1>Otras Fuentes del Derecho de la UE</h1>
+  <div class="sub">Acuerdos internacionales · Principios generales · Jurisprudencia del TJUE · Primacía y efecto directo</div>
+</div>
+
+<!-- ACUERDOS INTERNACIONALES -->
+<div class="section-label">01 · Acuerdos internacionales — Art. 216-218 TFUE</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Concepto y tipos</div>
+    <div class="item"><span class="arrow">→</span><span>Los acuerdos que celebra la <strong>UE</strong> con terceros países u organizaciones internacionales forman parte del ordenamiento jurídico de la Unión</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Vinculan</strong> a las instituciones de la UE y a los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Jerarquía:</strong> prevalecen sobre el Derecho derivado (reglamentos, directivas…) pero están <span class="pill pill-r">subordinados al Derecho originario</span></span></div>
+    <div class="sub-head">Tipos principales</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Acuerdos comerciales:</strong> política comercial común (competencia exclusiva UE)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Acuerdos de asociación:</strong> con países candidatos o vecinos (ej. Acuerdo EEE)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Acuerdos mixtos:</strong> celebrados conjuntamente por la UE y los EEMM cuando el objeto cae en competencias compartidas</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Acuerdos de adhesión:</strong> cuando un nuevo Estado entra en la UE</span></div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Procedimiento de celebración — Art. 218 TFUE</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Autorización:</strong> el <strong>Consejo</strong> autoriza la apertura de negociaciones</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Negociación:</strong> la <strong>Comisión</strong> negocia (o el Alto Representante en PESC)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Aprobación:</strong> el <strong>Consejo</strong> firma y celebra el acuerdo</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Participación del PE:</strong> en los acuerdos más importantes (asociación, adhesión, áreas cubiertas por el PLO) el PE debe dar su <span class="pill pill-b">aprobación</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Control previo:</strong> el TJUE puede emitir un dictamen previo sobre si el acuerdo es compatible con los Tratados · Si es negativo, el acuerdo no puede celebrarse sin reformar los Tratados</span></div>
+  </div>
+</div>
+
+<!-- PRINCIPIOS GENERALES -->
+<div class="section-label">02 · Principios generales del Derecho</div>
+<div class="block full green" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Principios reconocidos y desarrollados por el TJUE</div>
+  <div class="info" style="margin-bottom:12px;">
+    <div class="ilabel">Naturaleza</div>
+    No están codificados en los Tratados (salvo algunos). Son desarrollados por la jurisprudencia del TJUE a partir de tradiciones constitucionales comunes y del Derecho internacional. Tienen valor de <strong>fuente del Derecho</strong> y prevalecen sobre el Derecho derivado.
+  </div>
+  <div class="princ"><span class="princ-name">Proporcionalidad</span><span class="princ-desc">Las medidas de la UE no pueden ir más allá de lo necesario para alcanzar el objetivo. Rige tanto la acción de las instituciones como el control judicial.</span></div>
+  <div class="princ"><span class="princ-name">Seguridad jurídica</span><span class="princ-desc">Los ciudadanos deben poder conocer con certeza sus derechos y obligaciones. Incluye la irretroactividad de normas perjudiciales y la protección de situaciones jurídicas consolidadas.</span></div>
+  <div class="princ"><span class="princ-name">Confianza legítima</span><span class="princ-desc">Quien actúa de buena fe basándose en una situación creada por la Administración tiene derecho a que esa situación sea respetada. Derivado de la seguridad jurídica.</span></div>
+  <div class="princ"><span class="princ-name">Igualdad de trato</span><span class="princ-desc">Situaciones comparables deben tratarse de igual manera, salvo justificación objetiva. Base de la no discriminación por razón de nacionalidad (art. 18 TFUE).</span></div>
+  <div class="princ"><span class="princ-name">Tutela judicial efectiva</span><span class="princ-desc">Toda persona tiene derecho a un recurso efectivo ante un juez. Recogido también en el art. 47 CDFUE.</span></div>
+  <div class="princ"><span class="princ-name">Non bis in idem</span><span class="princ-desc">Nadie puede ser sancionado dos veces por los mismos hechos. Especialmente relevante en Derecho de la competencia y cooperación penal.</span></div>
+  <div class="princ"><span class="princ-name">Responsabilidad extracontractual</span><span class="princ-desc">La UE debe reparar los daños causados por sus instituciones o agentes en el ejercicio de sus funciones (art. 340 TFUE). El TJUE lo ha extendido también a los EEMM (Francovich).</span></div>
+  <div class="princ"><span class="princ-name">Derechos fundamentales</span><span class="princ-desc">Antes de la CDFUE (2009), el TJUE los protegía como principios generales extraídos de las tradiciones constitucionales comunes y del CEDH.</span></div>
+</div>
+
+<!-- JURISPRUDENCIA TJUE -->
+<div class="section-label">03 · La jurisprudencia del TJUE como fuente</div>
+<div class="grid-2">
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Valor de la jurisprudencia</div>
+    <div class="item"><span class="arrow">→</span><span><strong>No es fuente formal</strong> del Derecho UE (a diferencia del common law anglosajón), pero tiene un <strong>peso interpretativo determinante</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Las sentencias del TJUE que declaran la nulidad de un acto tienen <strong>efectos erga omnes</strong> (frente a todos)</span></div>
+    <div class="item"><span class="arrow">→</span><span>El TJUE sigue en la práctica sus propios precedentes (<em>stare decisis</em> de facto) aunque no está formalmente vinculado por ellos</span></div>
+    <div class="item"><span class="arrow">→</span><span>Ha sido el motor de los tres principios esenciales del sistema: <strong>primacía</strong>, <strong>efecto directo</strong> y <strong>responsabilidad del Estado</strong></span></div>
+  </div>
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>Sentencias fundacionales — las que debes conocer</div>
+    <div class="caso">
+      <div class="caso-title">Van Gend en Loos (1963) — Efecto directo</div>
+      <div class="caso-body">Primera sentencia que reconoce que el Derecho comunitario crea derechos para los particulares invocables directamente ante los jueces nacionales.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-title">Costa / ENEL (1964) — Primacía</div>
+      <div class="caso-body">El Derecho de la UE prevalece sobre el Derecho nacional. El juez nacional debe inaplicar la norma nacional contraria sin esperar a que sea derogada.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-title">Francovich (1991) — Responsabilidad del Estado</div>
+      <div class="caso-body">El Estado miembro que no transponga una directiva en plazo es responsable de los daños causados a los particulares y debe indemnizarlos.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-title">Simmenthal (1978) — Aplicación inmediata de la primacía</div>
+      <div class="caso-body">El juez nacional debe inaplicar la norma nacional contraria al Derecho UE de forma inmediata y por su propia autoridad, sin necesidad de solicitar su derogación.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PARA SACAR NOTA -->
+<div class="section-label">★ · Para sacar nota — complemento al temario</div>
+<div class="nota-zone">
+  <div class="nota-header">Ampliación — diferenciadores de alto nivel</div>
+  <div class="grid-3" style="margin-bottom:10px;">
+    <div class="nota-block">
+      <div class="nb-title">Derecho consuetudinario</div>
+      <div class="item"><span class="arrow">→</span><span>Existe una costumbre <em>interinstitucional</em> de la UE: prácticas consolidadas entre instituciones que, aunque no codificadas, son observadas como obligatorias</span></div>
+      <div class="item"><span class="arrow">→</span><span>Ejemplo: la <strong>comitología</strong> (sistema de comités que asisten a la Comisión en la ejecución) nació como práctica antes de regularse en los Tratados</span></div>
+      <div class="item"><span class="arrow">→</span><span>Tiene relevancia menor que en el Derecho internacional clásico, dado el carácter escrito del Derecho UE</span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">El CEDH y la UE</div>
+      <div class="item"><span class="arrow">→</span><span>El Convenio Europeo de Derechos Humanos (CEDH) no es formalmente fuente del Derecho UE, pero el art. 6.3 TUE establece que los derechos fundamentales que garantiza <strong>forman parte del Derecho de la Unión como principios generales</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span>El art. 6.2 TUE prevé la <strong>adhesión de la UE al CEDH</strong>, pero el TJUE la declaró incompatible con los Tratados en 2014 (Dictamen 2/13)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Las negociaciones de adhesión se han reanudado — aún en proceso</span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">Primacía — matices importantes</div>
+      <div class="item"><span class="arrow">→</span><span>La primacía del Derecho UE se aplica incluso frente a normas <strong>constitucionales</strong> nacionales (según el TJUE, caso Internationale Handelsgesellschaft, 1970)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Sin embargo, algunos Tribunales Constitucionales nacionales (alemán, español, italiano…) se reservan el control de los <strong>«contralímites»</strong>: no aplicarían el Derecho UE que vulnerara el núcleo de su Constitución</span></div>
+      <div class="item"><span class="arrow">→</span><span>Esta tensión es uno de los grandes debates del Derecho constitucional europeo actual</span></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="nota-block">
+      <div class="nb-title">Efecto directo horizontal de las directivas — el límite</div>
+      <div class="item"><span class="arrow">→</span><span>El TJUE ha negado sistemáticamente el <strong>efecto directo horizontal</strong> de las directivas (entre particulares) — caso Marshall (1986)</span></div>
+      <div class="item"><span class="arrow">→</span><span>Razón: la directiva obliga al Estado, no crea obligaciones entre particulares directamente</span></div>
+      <div class="item"><span class="arrow">→</span><span>La solución jurisprudencial es la <strong>responsabilidad del Estado</strong> (Francovich) para resarcir al particular perjudicado por la no transposición</span></div>
+      <div class="item"><span class="arrow">→</span><span>Excepción: si la directiva incorpora un principio general del Derecho UE, ese principio sí puede invocarse horizontalmente</span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">Interpretación conforme — obligación del juez nacional</div>
+      <div class="item"><span class="arrow">→</span><span>Aunque una directiva no tenga efecto directo, el juez nacional está <strong>obligado a interpretar el Derecho nacional</strong> a la luz de la directiva y su objetivo</span></div>
+      <div class="item"><span class="arrow">→</span><span>Principio establecido en <strong>Von Colson (1984)</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span>Este principio de <strong>interpretación conforme</strong> es la primera línea de defensa antes de recurrir al efecto directo o a Francovich</span></div>
+      <div class="item"><span class="arrow">→</span><span>Jerarquía práctica: (1) interpretación conforme → (2) efecto directo vertical → (3) responsabilidad del Estado</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Criba directa — Otras fuentes del Derecho UE</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Acuerdos internacionales — jerarquía</td><td>Por encima del Derecho derivado · Por debajo del Derecho originario</td></tr>
+      <tr><td>Quién negocia los acuerdos internacionales</td><td><strong>Comisión</strong> (o Alto Representante en PESC)</td></tr>
+      <tr><td>Quién celebra (firma) los acuerdos</td><td>El <strong>Consejo</strong></td></tr>
+      <tr><td>Acuerdos más importantes — PE</td><td>Requieren <strong>aprobación del PE</strong></td></tr>
+      <tr><td>Control previo de compatibilidad</td><td>El <strong>TJUE</strong> puede emitir dictamen previo</td></tr>
+      <tr><td>Principios generales — quién los reconoce</td><td>El <strong>TJUE</strong> mediante su jurisprudencia</td></tr>
+      <tr><td>Van Gend en Loos (1963)</td><td><strong>Efecto directo</strong> del Derecho comunitario</td></tr>
+      <tr><td>Costa / ENEL (1964)</td><td><strong>Primacía</strong> del Derecho UE sobre el nacional</td></tr>
+      <tr><td>Francovich (1991)</td><td><strong>Responsabilidad del Estado</strong> por no transposición de directiva</td></tr>
+      <tr><td>Simmenthal (1978)</td><td>Inaplicación <strong>inmediata</strong> por el juez nacional sin esperar derogación</td></tr>
+      <tr><td>Von Colson (1984)</td><td>Principio de <strong>interpretación conforme</strong> al Derecho UE</td></tr>
+      <tr><td>Marshall (1986)</td><td>Las directivas <strong>no tienen efecto directo horizontal</strong></td></tr>
+      <tr><td>Efecto directo horizontal directivas</td><td><span class="pill pill-r">No</span> — solo vertical (particular vs. Estado)</td></tr>
+      <tr><td>Primacía frente a Constituciones nacionales</td><td><span class="pill pill-g">Sí</span> según TJUE · Con «contralímites» según algunos TC nacionales</td></tr>
+      <tr><td>CEDH — relación con la UE</td><td>No es fuente formal pero sus derechos son principios generales del Derecho UE (art. 6.3 TUE)</td></tr>
+      <tr><td>Adhesión de la UE al CEDH</td><td>Prevista en el TUE pero bloqueada por dictamen TJUE <strong>2/13 (2014)</strong> · Renegociando</td></tr>
+      <tr><td>Sentencias TJUE de anulación — efectos</td><td><strong>Erga omnes</strong> (frente a todos)</td></tr>
+      <tr><td>Jerarquía práctica ante directiva no transpuesta</td><td>(1) Interpretación conforme → (2) Efecto directo vertical → (3) Responsabilidad del Estado</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

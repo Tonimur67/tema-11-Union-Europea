@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuentes del Derecho de la UE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root{--bg:#0d0f14;--surface:#141720;--border:#252a38;--accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;--text:#d4d8e8;--muted:#6b7292;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid rgba(232,200,64,.3);padding:4px 10px;background:rgba(232,200,64,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);} .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+  .nota-zone{border:1px solid rgba(192,132,252,.35);background:rgba(192,132,252,.04);padding:14px;margin-bottom:14px;}
+  .nota-header{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent5);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(192,132,252,.2);display:flex;align-items:center;gap:8px;}
+  .nota-header::before{content:'★';font-size:12px;}
+  .nota-block{background:rgba(192,132,252,.06);border:1px solid rgba(192,132,252,.2);padding:12px 14px;margin-bottom:10px;}
+  .nota-block:last-child{margin-bottom:0;}
+  .nota-block .nb-title{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+
+  /* Jerarquía visual */
+  .jerarquia{display:flex;flex-direction:column;gap:0;}
+  .jer-nivel{padding:12px 16px;border:1px solid var(--border);border-bottom:none;display:flex;align-items:center;justify-content:space-between;}
+  .jer-nivel:last-child{border-bottom:1px solid var(--border);}
+  .jer-n1{background:rgba(232,200,64,.08);border-color:rgba(232,200,64,.3);}
+  .jer-n2{background:rgba(61,158,255,.06);border-color:rgba(61,158,255,.25);}
+  .jer-n3{background:rgba(74,222,128,.05);border-color:rgba(74,222,128,.2);}
+  .jer-n4{background:rgba(107,114,146,.05);}
+  .jer-label strong{color:#fff;font-size:13px;}
+  .jer-label small{display:block;font-size:11px;color:var(--muted);margin-top:2px;}
+
+  /* Actos detalle */
+  .acto-card{border:1px solid var(--border);padding:12px 14px;margin-bottom:10px;background:rgba(255,255,255,.02);}
+  .acto-card:last-child{margin-bottom:0;}
+  .acto-name{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="anexo_tema_11.html">← Volver al Anexo Tema 11</a></div>
+
+<div class="header">
+  <div class="tag">TFUE Art. 288 · Derecho Originario + Derivado</div>
+  <h1>Fuentes del Derecho de la Unión Europea</h1>
+  <div class="sub">Derecho originario · Los 5 actos del art. 288 TFUE · Jerarquía normativa · Principios de eficacia</div>
+</div>
+
+<!-- JERARQUÍA -->
+<div class="section-label">01 · Jerarquía de fuentes</div>
+<div class="block full yellow" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Pirámide normativa de la UE</div>
+  <div class="jerarquia">
+    <div class="jer-nivel jer-n1">
+      <div class="jer-label"><strong>1 · Derecho Originario (Primario)</strong><small>TUE + TFUE + CDFUE + Protocolos + Tratados de adhesión</small></div>
+      <span class="pill pill-y">Rango supremo</span>
+    </div>
+    <div class="jer-nivel jer-n2">
+      <div class="jer-label"><strong>2 · Acuerdos internacionales celebrados por la UE</strong><small>Vinculan a instituciones y EEMM · Prevalecen sobre el Derecho derivado</small></div>
+      <span class="pill pill-b">Rango intermedio</span>
+    </div>
+    <div class="jer-nivel jer-n3">
+      <div class="jer-label"><strong>3 · Derecho Derivado (Secundario)</strong><small>Reglamentos · Directivas · Decisiones · Recomendaciones · Dictámenes (art. 288 TFUE)</small></div>
+      <span class="pill pill-g">Subordinado al originario</span>
+    </div>
+    <div class="jer-nivel jer-n4">
+      <div class="jer-label"><strong>4 · Principios generales del Derecho + Jurisprudencia TJUE</strong><small>Desarrollados por el TJUE · No son fuente formal pero tienen enorme peso interpretativo</small></div>
+      <span class="pill" style="background:rgba(107,114,146,.15);color:var(--muted);border:1px solid var(--border);">Fuente complementaria</span>
+    </div>
+  </div>
+</div>
+
+<!-- DERECHO ORIGINARIO -->
+<div class="section-label">02 · Derecho originario — el techo del sistema</div>
+<div class="grid-2">
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Elementos que lo integran</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">TUE</span> — Tratado de la Unión Europea (Lisboa 2009)</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">TFUE</span> — Tratado de Funcionamiento de la UE (Lisboa 2009)</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-y">CDFUE</span> — Carta de Derechos Fundamentales de la UE · Valor jurídico vinculante desde Lisboa</span></div>
+    <div class="item"><span class="arrow">→</span><span>Protocolos y anexos a los Tratados (tienen el mismo valor jurídico)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Tratados de adhesión de cada Estado miembro</span></div>
+    <div class="item"><span class="arrow">→</span><span>Principios generales comunes a los ordenamientos de los EEMM reconocidos por el TJUE</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Relación TUE-TFUE</div>
+      Ambos tienen el <strong>mismo valor jurídico</strong>. El TUE recoge los principios y valores; el TFUE desarrolla las políticas y el funcionamiento institucional.
+    </div>
+  </div>
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>Características</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Supralegalidad formal:</strong> ninguna norma de la UE puede contradecirlo — los actos derivados contrarios son <strong>nulos</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Supralegalidad material:</strong> prevalece también sobre el Derecho nacional de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Reforma:</strong> requiere la convocatoria de una <strong>Conferencia Intergubernamental</strong> y ratificación por todos los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Control de legalidad:</strong> el TJUE controla que el Derecho derivado sea conforme con el originario</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>CDFUE:</strong> los Protocolos 30 y 31 limitan su aplicación en ciertos EEMM (Polonia, Chequia…)</span></div>
+  </div>
+</div>
+
+<!-- LOS 5 ACTOS — DERECHO DERIVADO -->
+<div class="section-label">03 · Derecho derivado — Los 5 actos del art. 288 TFUE</div>
+
+<div class="block full blue" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Tabla comparativa de los 5 actos</div>
+  <table>
+    <thead>
+      <tr><th>Acto</th><th>Vinculante</th><th>Alcance</th><th>Ap. directo</th><th>Destinatarios</th><th>Publicación DOUE</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Reglamento</strong></td>
+        <td><span class="pill pill-g">Sí — íntegramente</span></td>
+        <td>General</td>
+        <td><span class="pill pill-g">Sí</span></td>
+        <td>Todos (EEMM + particulares)</td>
+        <td><span class="pill pill-g">Obligatoria</span></td>
+      </tr>
+      <tr>
+        <td><strong>Directiva</strong></td>
+        <td><span class="pill pill-y">Solo en el resultado</span></td>
+        <td>No general</td>
+        <td><span class="pill pill-r">No — requiere transposición</span></td>
+        <td>Solo EEMM destinatarios</td>
+        <td><span class="pill pill-g">Obligatoria</span> (si todos los EEMM)</td>
+      </tr>
+      <tr>
+        <td><strong>Decisión</strong></td>
+        <td><span class="pill pill-g">Sí — íntegramente</span></td>
+        <td>No general</td>
+        <td><span class="pill pill-g">Sí</span></td>
+        <td>Destinatario específico o todos</td>
+        <td><span class="pill pill-y">Obligatoria si no señala dest.</span></td>
+      </tr>
+      <tr>
+        <td><strong>Recomendación</strong></td>
+        <td><span class="pill pill-r">No</span></td>
+        <td>Variable</td>
+        <td><span class="pill pill-r">No</span></td>
+        <td>Variable</td>
+        <td>No exigida</td>
+      </tr>
+      <tr>
+        <td><strong>Dictamen</strong></td>
+        <td><span class="pill pill-r">No</span></td>
+        <td>Variable</td>
+        <td><span class="pill pill-r">No</span></td>
+        <td>Variable</td>
+        <td>No exigida</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CADA ACTO EN DETALLE -->
+<div class="grid-2">
+  <div class="block green">
+    <div class="block-title"><span class="dot"></span>El Reglamento — desglose</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Alcance general:</strong> regula supuestos abstractos · destinatarios son los EEMM y sus nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Obligatorio en todos sus elementos:</strong> no puede aplicarse de forma incompleta o selectiva</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Directamente aplicable:</strong> forma parte del ordenamiento interno automáticamente desde su publicación en el DOUE, <span class="pill pill-r">sin necesidad de publicación en el BOE</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Efecto directo:</strong> crea derechos y obligaciones invocables directamente por los particulares ante los jueces nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Entrada en vigor:</strong> a los <span class="pill pill-g">20 días</span> de su publicación en el DOUE, salvo que el propio reglamento fije otra fecha</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Prohibición de interferencia nacional</div>
+      Los EEMM <strong>no pueden adoptar medidas internas</strong> que reproduzcan, modifiquen o desnaturalicen el contenido de un Reglamento.
+    </div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>La Directiva — desglose</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sin alcance general:</strong> obliga solo a los EEMM destinatarios, no directamente a sus nacionales</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Obliga en cuanto al resultado</strong> pero deja <strong>libre la forma y los medios</strong> de alcanzarlo</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Requiere transposición:</strong> el EEMM debe aprobar una ley o reglamento nacional que incorpore la directiva a su ordenamiento</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Plazo de transposición:</strong> fijado en la propia directiva (generalmente 1-3 años)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Efecto directo — excepción jurisprudencial:</strong> si un EEMM no transpone en plazo, el particular puede invocar la directiva directamente frente al Estado (<em>efecto directo vertical</em>)</span></div>
+    <div class="alert" style="margin-top:10px;margin-bottom:0;">
+      <div class="alabel">⚠ Incumplimiento de transposición</div>
+      Si el EEMM no transpone en plazo, la Comisión puede interponer un <strong>recurso por incumplimiento</strong> ante el TJUE.
+    </div>
+  </div>
+</div>
+
+<div class="grid-3">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>La Decisión</div>
+    <div class="item"><span class="arrow">→</span><span>Obligatoria en todos sus elementos · directamente aplicable</span></div>
+    <div class="item"><span class="arrow">→</span><span>Puede tener <strong>destinatario específico</strong> (un EEMM, una empresa, una persona) o no tenerlo (decisión de alcance general)</span></div>
+    <div class="item"><span class="arrow">→</span><span>Si designa destinatarios, <strong>solo obliga a estos</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Se notifica al destinatario y surte efecto desde la notificación</span></div>
+    <div class="item"><span class="arrow">→</span><span>Publicación en DOUE: <span class="pill pill-b">obligatoria si no tiene destinatario</span> específico</span></div>
+  </div>
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>La Recomendación</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">No vinculante</span> — no crea obligaciones jurídicas</span></div>
+    <div class="item"><span class="arrow">→</span><span>Invita a su destinatario a <strong>adoptar un determinado comportamiento</strong> sin imponérselo</span></div>
+    <div class="item"><span class="arrow">→</span><span>Instrumento de <strong>soft law</strong>: orientación política sin coerción jurídica</span></div>
+    <div class="item"><span class="arrow">→</span><span>Pueden emitirlas: Comisión, Consejo, BCE</span></div>
+    <div class="note" style="margin-top:8px;margin-bottom:0;">
+      <div class="nlabel">Jurisprudencia</div>
+      El TJUE ha dicho que los jueces nacionales <strong>deben tenerlas en cuenta</strong> al interpretar el Derecho nacional (caso Grimaldi).
+    </div>
+  </div>
+  <div class="block yellow">
+    <div class="block-title"><span class="dot"></span>El Dictamen</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">No vinculante</span> — permite a las instituciones expresar su posición</span></div>
+    <div class="item"><span class="arrow">→</span><span>Refleja la <strong>opinión de la institución</strong> que lo emite sobre una cuestión concreta</span></div>
+    <div class="item"><span class="arrow">→</span><span>Instrumento de <strong>declaración política o técnica</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span>Pueden emitirlos: Comisión, Consejo, PE, CESE, CDR y otros órganos</span></div>
+    <div class="item"><span class="arrow">→</span><span>El CESE y el CDR participan en el proceso legislativo precisamente a través de <strong>dictámenes</strong></span></div>
+  </div>
+</div>
+
+<!-- PARA SACAR NOTA -->
+<div class="section-label">★ · Para sacar nota — complemento al temario</div>
+<div class="nota-zone">
+  <div class="nota-header">Ampliación — principios de eficacia del Derecho UE · diferenciadores de alto nivel</div>
+  <div class="grid-3" style="margin-bottom:10px;">
+    <div class="nota-block">
+      <div class="nb-title">Efecto directo — origen</div>
+      <div class="item"><span class="arrow">→</span><span>Establecido por el TJUE en <strong>Van Gend en Loos (1963)</strong>: las normas de la UE pueden crear derechos para los particulares, invocables directamente ante los jueces nacionales</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Vertical:</strong> particular vs. Estado · <strong>Horizontal:</strong> entre particulares (solo Reglamentos y algunas Decisiones)</span></div>
+      <div class="item"><span class="arrow">→</span><span>La Directiva solo tiene efecto directo <strong>vertical</strong> y solo si no fue transpuesta en plazo</span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">Primacía — origen</div>
+      <div class="item"><span class="arrow">→</span><span>Establecida por el TJUE en <strong>Costa/ENEL (1964)</strong>: el Derecho UE prevalece sobre el Derecho nacional, incluso sobre normas constitucionales</span></div>
+      <div class="item"><span class="arrow">→</span><span>El juez nacional debe <strong>inaplicar</strong> la norma interna contraria, sin necesidad de esperar a que sea derogada</span></div>
+      <div class="item"><span class="arrow">→</span><span>No está expresamente en los Tratados: es creación <strong>puramente jurisprudencial</strong></span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">Responsabilidad del Estado</div>
+      <div class="item"><span class="arrow">→</span><span>Principio establecido en <strong>Francovich (1991)</strong>: si un EEMM no transpone una directiva y ello causa daños a un particular, el Estado es <strong>responsable y debe indemnizar</strong></span></div>
+      <div class="item"><span class="arrow">→</span><span>Tres condiciones: (1) norma confiere derechos al particular · (2) violación suficientemente caracterizada · (3) nexo causal</span></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="nota-block">
+      <div class="nb-title">Actos legislativos vs actos no legislativos</div>
+      <div class="item"><span class="arrow">→</span><span>El TFUE distingue entre <strong>actos legislativos</strong> (adoptados por el PE y el Consejo mediante procedimiento legislativo) y <strong>actos no legislativos</strong> (adoptados por la Comisión u otras instituciones por vía de ejecución o delegación)</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Actos delegados (art. 290 TFUE):</strong> la Comisión puede adoptar actos de alcance general que completen o modifiquen elementos no esenciales del acto legislativo</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Actos de ejecución (art. 291 TFUE):</strong> la Comisión (o el Consejo en casos justificados) adopta las modalidades de ejecución de los actos vinculantes</span></div>
+    </div>
+    <div class="nota-block">
+      <div class="nb-title">Publicación en el DOUE — reglas exactas</div>
+      <div class="item"><span class="arrow">→</span><span>El DOUE se publica en las <strong>24 lenguas oficiales</strong> de la UE y todos los textos son igualmente auténticos</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Reglamentos y Directivas:</strong> publicación <span class="pill pill-g">obligatoria</span> en el DOUE</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Decisiones:</strong> obligatoria si no tienen destinatario; si tienen destinatario se notifican a este</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Reglamento:</strong> entra en vigor a los <span class="pill pill-g">20 días</span> de su publicación salvo fecha expresamente indicada</span></div>
+      <div class="item"><span class="arrow">→</span><span><strong>Directiva:</strong> entra en vigor en la fecha indicada; si no, a los 20 días</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Criba directa — Fuentes del Derecho UE</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Valor jurídico TUE vs TFUE</td><td><strong>Idéntico</strong> — ambos son Derecho originario de igual rango</td></tr>
+      <tr><td>CDFUE — valor vinculante desde</td><td><strong>Lisboa (2009)</strong></td></tr>
+      <tr><td>Protocolos y Anexos — rango</td><td>Mismo rango que los Tratados (Derecho originario)</td></tr>
+      <tr><td>Actos del art. 288 TFUE</td><td>Reglamento · Directiva · Decisión · Recomendación · Dictamen</td></tr>
+      <tr><td>Actos vinculantes</td><td>Reglamento + Directiva + Decisión</td></tr>
+      <tr><td>Actos no vinculantes</td><td>Recomendación + Dictamen</td></tr>
+      <tr><td>Reglamento — entrada en vigor</td><td><strong>20 días</strong> desde publicación en DOUE (salvo fecha indicada)</td></tr>
+      <tr><td>Reglamento — publicación en BOE</td><td><span class="pill pill-r">No necesaria</span> — directamente aplicable desde DOUE</td></tr>
+      <tr><td>Directiva — obliga al EEMM en</td><td>El <strong>resultado</strong> · deja libre la forma y los medios</td></tr>
+      <tr><td>Directiva — efecto directo si no transpuesta</td><td><span class="pill pill-g">Sí</span> — vertical (particular vs. Estado) · solo si no transpuesta en plazo</td></tr>
+      <tr><td>Decisión — si tiene destinatario</td><td>Solo obliga a ese destinatario · se <strong>notifica</strong></td></tr>
+      <tr><td>Decisión — sin destinatario — publicación</td><td><span class="pill pill-g">Obligatoria</span> en el DOUE</td></tr>
+      <tr><td>Recomendación — efecto</td><td>Soft law · los jueces deben <strong>tenerla en cuenta</strong> (caso Grimaldi)</td></tr>
+      <tr><td>Efecto directo — origen</td><td>TJUE, caso <strong>Van Gend en Loos (1963)</strong></td></tr>
+      <tr><td>Primacía — origen</td><td>TJUE, caso <strong>Costa/ENEL (1964)</strong></td></tr>
+      <tr><td>Responsabilidad del Estado — origen</td><td>TJUE, caso <strong>Francovich (1991)</strong></td></tr>
+      <tr><td>DOUE — nº de lenguas</td><td><strong>24</strong> lenguas oficiales</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

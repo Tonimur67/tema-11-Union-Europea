@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TJUE — Tribunal de Justicia de la UE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+  :root{--bg:#0d0f14;--surface:#141720;--border:#252a38;--accent:#e8c840;--accent2:#3d9eff;--accent3:#ff5f5f;--accent4:#4ade80;--accent5:#c084fc;--text:#d4d8e8;--muted:#6b7292;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.6;padding:32px 24px;max-width:980px;margin:0 auto;}
+  .nav-back{margin-bottom:20px;}
+  .nav-back a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent3);text-decoration:none;border:1px solid rgba(255,95,95,.3);padding:4px 10px;background:rgba(255,95,95,.06);}
+  .nav-back a:hover{opacity:.75;}
+  .header{border-left:4px solid var(--accent3);padding:16px 20px;margin-bottom:32px;background:var(--surface);}
+  .header .tag{font-family:var(--mono);font-size:10px;color:var(--accent3);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+  .header h1{font-size:20px;font-weight:700;color:#fff;line-height:1.3;}
+  .header .sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+  .full{grid-column:1/-1;}
+  .block{background:var(--surface);border:1px solid var(--border);padding:14px;}
+  .block-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .yellow .block-title{color:var(--accent);} .yellow .dot{background:var(--accent);}
+  .blue .block-title{color:var(--accent2);} .blue .dot{background:var(--accent2);}
+  .red .block-title{color:var(--accent3);} .red .dot{background:var(--accent3);}
+  .green .block-title{color:var(--accent4);} .green .dot{background:var(--accent4);}
+  .purple .block-title{color:var(--accent5);} .purple .dot{background:var(--accent5);}
+  .item{display:flex;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.5;}
+  .item:last-child{margin-bottom:0;}
+  .item .arrow{color:var(--muted);flex-shrink:0;font-family:var(--mono);font-size:11px;margin-top:1px;}
+  .item strong{color:#fff;font-weight:600;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:1px 7px;border-radius:2px;margin:0 2px;}
+  .pill-y{background:rgba(232,200,64,.15);color:var(--accent);border:1px solid rgba(232,200,64,.3);}
+  .pill-b{background:rgba(61,158,255,.15);color:var(--accent2);border:1px solid rgba(61,158,255,.3);}
+  .pill-r{background:rgba(255,95,95,.15);color:var(--accent3);border:1px solid rgba(255,95,95,.3);}
+  .pill-g{background:rgba(74,222,128,.15);color:var(--accent4);border:1px solid rgba(74,222,128,.3);}
+  .pill-p{background:rgba(192,132,252,.15);color:var(--accent5);border:1px solid rgba(192,132,252,.3);}
+  .section-label{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:22px 0 11px 0;display:flex;align-items:center;gap:10px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+  td{padding:7px 8px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:top;line-height:1.4;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:#fff;}
+  .alert{background:rgba(255,95,95,.08);border:1px solid rgba(255,95,95,.25);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .alert .alabel{font-family:var(--mono);font-size:9px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .note{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .note .nlabel{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .info{background:rgba(61,158,255,.06);border:1px solid rgba(61,158,255,.22);padding:10px 14px;font-size:12px;margin-bottom:8px;}
+  .info .ilabel{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .criba{background:rgba(232,200,64,.04);border:1px solid rgba(232,200,64,.2);}
+  .criba .block-title{color:var(--accent);}
+  .criba th{color:var(--accent);}
+  .sub-head{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:10px 0 6px 0;}
+
+  /* Estructura piramidal */
+  .piramide{display:flex;flex-direction:column;gap:6px;margin:10px 0;}
+  .pir-nivel{padding:10px 14px;border:1px solid var(--border);font-size:12px;display:flex;justify-content:space-between;align-items:center;}
+  .pir-nivel strong{color:#fff;}
+  .pir-nivel small{color:var(--muted);font-size:11px;}
+
+  /* Recursos tabla coloreada */
+  tr.rec-blue td:first-child{border-left:3px solid var(--accent2);}
+  tr.rec-red td:first-child{border-left:3px solid var(--accent3);}
+  tr.rec-green td:first-child{border-left:3px solid var(--accent4);}
+  tr.rec-purple td:first-child{border-left:3px solid var(--accent5);}
+  tr.rec-yellow td:first-child{border-left:3px solid var(--accent);}
+</style>
+</head>
+<body>
+
+<div class="nav-back"><a href="7_Instituciones_de_la_UE.html">← Volver a las 7 Instituciones</a></div>
+
+<div class="header">
+  <div class="tag">Institución nº 5 · Art. 19 TUE · Arts. 251-281 TFUE</div>
+  <h1>Tribunal de Justicia de la UE <span style="color:var(--muted);font-weight:300;">(TJUE)</span></h1>
+  <div class="sub">Garantiza el respeto del Derecho en la interpretación y aplicación de los Tratados · Sede: Luxemburgo · Desde 1958</div>
+</div>
+
+<!-- 1. ESTRUCTURA Y SEDE -->
+<div class="section-label">01 · Marco estructural, creación y sede</div>
+<div class="grid-2">
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Origen y sede</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Raíces:</strong> Tratados Constitutivos de las Comunidades Europeas</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Inicio de competencias:</strong> <span class="pill pill-r">1958</span> — de forma conjunta sobre las tres Comunidades Europeas</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Nombre actual:</strong> fijado en <span class="pill pill-r">2009</span> con la entrada en vigor del Tratado de Lisboa</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sede permanente:</strong> <span class="pill pill-r">Luxemburgo</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Base legal:</strong> Art. 19 TUE + Arts. 251-281 TFUE</span></div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Estructura orgánica interna — tres niveles</div>
+    <div class="piramide">
+      <div class="pir-nivel" style="border-color:rgba(255,95,95,.4);background:rgba(255,95,95,.06);">
+        <div><strong>Tribunal de Justicia</strong><br><small>Instancia superior · 1 juez por EEMM + 11 abogados generales</small></div>
+        <span class="pill pill-r">TJ</span>
+      </div>
+      <div class="pir-nivel" style="border-color:rgba(61,158,255,.4);background:rgba(61,158,255,.04);">
+        <div><strong>Tribunal General</strong><br><small>Primera instancia · ≥ 1 juez por EEMM (actualmente 2/EEMM)</small></div>
+        <span class="pill pill-b">TG</span>
+      </div>
+      <div class="pir-nivel" style="border-color:var(--border);background:rgba(255,255,255,.02);">
+        <div><strong>Tribunales especializados</strong><br><small>Actualmente: <span style="color:var(--accent3);">ninguno en activo</span> (el último, el TFP, se disolvió en 2016)</small></div>
+        <span class="pill" style="background:rgba(107,114,146,.15);color:var(--muted);border:1px solid var(--border);">TE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. TRIBUNAL DE JUSTICIA -->
+<div class="section-label">02 · El Tribunal de Justicia — composición y funcionamiento</div>
+<div class="grid-2">
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Composición y designación</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Jueces:</strong> <span class="pill pill-r">1 por Estado miembro</span> — actualmente 27 jueces</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Abogados Generales:</strong> <span class="pill pill-r">11</span> (originalmente 8; ampliados a 11 por decisión del Consejo en 2013)</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función de los AG:</strong> presentar, con total imparcialidad e independencia, conclusiones motivadas en los asuntos que lo requieran</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Ampliación de AG:</strong> el Consejo puede aumentar su número por <span class="pill pill-r">unanimidad</span>, a solicitud del TJ</span></div>
+    <div class="sub-head">Designación</div>
+    <div class="item"><span class="arrow">→</span><span>De <strong>común acuerdo</strong> por los Gobiernos de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span>Perfil: personalidades que ofrezcan <strong>absolutas garantías de independencia</strong></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mandato:</strong> <span class="pill pill-r">6 años</span> · Renovación parcial cada <span class="pill pill-r">3 años</span> · Renovable</span></div>
+  </div>
+  <div class="block red">
+    <div class="block-title"><span class="dot"></span>Presidencia y modalidades de actuación</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidente:</strong> elegido por los propios jueces de entre ellos · Mandato: <span class="pill pill-r">3 años</span> · Renovable</span></div>
+    <div class="sub-head">Tres modalidades de actuación</div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">Sala</span> — formación habitual para la mayoría de asuntos</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">Gran Sala</span> — compuesta obligatoriamente por <strong>15 jueces</strong>. Deben formar parte los Presidentes de las Salas de 5 jueces. La preside el Presidente del TJ</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">Pleno</span> — únicamente cuando el Estatuto así lo disponga expresamente</span></div>
+    <div class="alert" style="margin-top:10px;margin-bottom:0;">
+      <div class="alabel">⚠ Gran Sala — dato exacto</div>
+      <strong>15 jueces obligatoriamente</strong> — ni más ni menos. Dato frecuente en test.
+    </div>
+  </div>
+</div>
+
+<!-- 3. TRIBUNAL GENERAL -->
+<div class="section-label">03 · El Tribunal General</div>
+<div class="grid-2">
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Función y composición</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Función:</strong> conoce y resuelve los asuntos en <strong>primera instancia</strong>, así como los recursos contra resoluciones de los tribunales especializados</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición mínima (Tratado):</strong> al menos <span class="pill pill-b">1 juez por EEMM</span></span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Composición actual (Estatuto):</strong> <span class="pill pill-b">2 jueces por EEMM</span> — actualmente 54 jueces</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sin Abogados Generales</strong> — a diferencia del TJ</span></div>
+    <div class="note" style="margin-top:10px;margin-bottom:0;">
+      <div class="nlabel">Recurso contra sus sentencias</div>
+      Las sentencias del Tribunal General pueden recurrirse ante el <strong>Tribunal de Justicia</strong>, pero solo por cuestiones de Derecho (no de hecho).
+    </div>
+  </div>
+  <div class="block blue">
+    <div class="block-title"><span class="dot"></span>Designación y presidencia</div>
+    <div class="item"><span class="arrow">→</span><span><strong>Sistema idéntico al TJ:</strong> designados de común acuerdo por los Gobiernos de los EEMM</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Mandato:</strong> <span class="pill pill-b">6 años</span> · Renovación parcial cada <span class="pill pill-b">3 años</span> · Renovable</span></div>
+    <div class="item"><span class="arrow">→</span><span><strong>Presidente:</strong> elegido por los propios jueces de entre ellos · Mandato: <span class="pill pill-b">3 años</span> · Renovable</span></div>
+    <div class="sub-head">Tribunales especializados</div>
+    <div class="item"><span class="arrow">→</span><span>Creados como adjuntos al <strong>Tribunal General</strong> por el PE y el Consejo mediante procedimiento legislativo ordinario</span></div>
+    <div class="item"><span class="arrow">→</span><span>Históricamente existió el <strong>Tribunal de la Función Pública</strong> — disuelto en <span class="pill pill-r">2016</span>, asumiendo sus competencias el Tribunal General</span></div>
+    <div class="item"><span class="arrow">→</span><span><span class="pill pill-r">Actualmente no existe ningún tribunal especializado en activo</span></span></div>
+  </div>
+</div>
+
+<!-- 4. MISIÓN Y RECURSOS -->
+<div class="section-label">04 · Misión y tipología de recursos — Art. 19 TUE</div>
+<div class="block full red" style="margin-bottom:14px;">
+  <div class="block-title"><span class="dot"></span>Función esencial y tipos de pronunciamientos</div>
+  <div class="item" style="margin-bottom:12px;"><span class="arrow">→</span><span style="font-size:13px;"><strong>Garantizar el respeto del Derecho en la interpretación y aplicación de los Tratados</strong></span></div>
+  <table>
+    <thead><tr><th>Recurso</th><th>¿Quién lo interpone?</th><th>Ante qué órgano</th><th>Esencia</th></tr></thead>
+    <tbody>
+      <tr class="rec-red">
+        <td><strong>Recurso por incumplimiento</strong></td>
+        <td>Comisión o EEMM contra otro EEMM</td>
+        <td>TJ</td>
+        <td>EEMM no ha cumplido una obligación de los Tratados</td>
+      </tr>
+      <tr class="rec-blue">
+        <td><strong>Recurso de anulación</strong></td>
+        <td>EEMM, instituciones, personas físicas/jurídicas</td>
+        <td>TJ (instituciones) · TG (particulares)</td>
+        <td>Impugna la legalidad de un acto de la UE</td>
+      </tr>
+      <tr class="rec-purple">
+        <td><strong>Recurso por omisión</strong></td>
+        <td>EEMM, instituciones, personas físicas/jurídicas</td>
+        <td>TJ o TG según caso</td>
+        <td>Institución se abstiene de pronunciarse infringiendo los Tratados</td>
+      </tr>
+      <tr class="rec-green">
+        <td><strong>Cuestión prejudicial</strong></td>
+        <td>Órgano jurisdiccional nacional</td>
+        <td>TJ (exclusivo)</td>
+        <td>Interpretación del Derecho UE o validez de actos de instituciones</td>
+      </tr>
+      <tr class="rec-yellow">
+        <td><strong>Recurso de casación</strong></td>
+        <td>Partes en litigio ante el TG</td>
+        <td>TJ</td>
+        <td>Recurso contra sentencias del TG · Solo por cuestiones de Derecho</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note" style="margin-top:12px;margin-bottom:0;">
+    <div class="nlabel">Cuestión prejudicial — regla clave</div>
+    El órgano jurisdiccional nacional cuyas decisiones <strong>no sean susceptibles de ulterior recurso</strong> judicial de Derecho interno está <strong>obligado</strong> a plantearla. Los demás: facultativo.
+  </div>
+</div>
+
+<!-- CRIBA -->
+<div class="section-label">🎯 · Kit de criba directa — TJUE</div>
+<div class="block full criba">
+  <div class="block-title"><span class="dot"></span>Datos críticos para el test</div>
+  <table>
+    <thead><tr><th>Concepto</th><th>Dato clave</th></tr></thead>
+    <tbody>
+      <tr><td>Inicio de competencias</td><td><strong>1958</strong> — sobre las tres Comunidades Europeas</td></tr>
+      <tr><td>Nombre actual desde</td><td><strong>2009</strong> — Tratado de Lisboa</td></tr>
+      <tr><td>Sede</td><td><strong>Luxemburgo</strong></td></tr>
+      <tr><td>Estructura interna</td><td>Tribunal de Justicia · Tribunal General · Tribunales especializados</td></tr>
+      <tr><td>Tribunales especializados activos</td><td><span class="pill pill-r">Ninguno</span> — el TFP se disolvió en <strong>2016</strong></td></tr>
+      <tr><td>TJ — jueces</td><td><strong>1 por EEMM</strong> = actualmente 27</td></tr>
+      <tr><td>TJ — abogados generales</td><td><strong>11</strong> (originalmente 8, ampliados en 2013)</td></tr>
+      <tr><td>Ampliar nº de abogados generales — quién y cómo</td><td>El <strong>Consejo</strong> por <strong>unanimidad</strong>, a solicitud del TJ</td></tr>
+      <tr><td>TJ — designación</td><td>De <strong>común acuerdo</strong> por los Gobiernos de los EEMM</td></tr>
+      <tr><td>TJ — mandato</td><td><strong>6 años</strong> · Renovación parcial cada <strong>3 años</strong> · Renovable</td></tr>
+      <tr><td>TJ — Presidente, quién lo elige</td><td>Los <strong>propios jueces</strong> de entre ellos</td></tr>
+      <tr><td>TJ — Presidente, mandato</td><td><strong>3 años</strong> · Renovable</td></tr>
+      <tr><td>Gran Sala — nº de jueces</td><td><strong>15 jueces</strong> obligatoriamente</td></tr>
+      <tr><td>Pleno — cuándo</td><td>Solo cuando el <strong>Estatuto</strong> lo disponga expresamente</td></tr>
+      <tr><td>TG — función</td><td><strong>Primera instancia</strong> + recursos contra tribunales especializados</td></tr>
+      <tr><td>TG — composición mínima (Tratado)</td><td>Al menos <strong>1 juez por EEMM</strong></td></tr>
+      <tr><td>TG — composición actual (Estatuto)</td><td><strong>2 jueces por EEMM</strong> = 54 jueces</td></tr>
+      <tr><td>TG — abogados generales</td><td><span class="pill pill-r">No tiene</span></td></tr>
+      <tr><td>TG — mandato y Presidente</td><td>Idéntico al TJ: <strong>6 años</strong> · Presidente elegido por los jueces · <strong>3 años</strong></td></tr>
+      <tr><td>Cuestión prejudicial — obligado a plantearla</td><td>Órgano judicial sin posibilidad de <strong>ulterior recurso</strong> en Derecho interno</td></tr>
+      <tr><td>Cuestión prejudicial — facultativo</td><td>El resto de órganos jurisdiccionales nacionales</td></tr>
+      <tr><td>Misión esencial</td><td>Garantizar el respeto del Derecho en la <strong>interpretación y aplicación de los Tratados</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
